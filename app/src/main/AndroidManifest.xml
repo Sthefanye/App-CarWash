@@ -8,9 +8,14 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.LavaJato">
+        android:theme="@style/Theme.MyApplication">
         <activity
-            android:name=".MainActivity"
+            android:name="com.example.lavajato.ui.activities.LoginActivity"
+            android:exported="true" />
+        android:theme="@style/Theme.LavaJato">
+
+        <activity
+            android:name="com.example.lavajato.ui.activities.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
