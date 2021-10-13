@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.myapplication">
+    package="com.example.lavajato">
 
     <application
         android:allowBackup="true"
@@ -12,6 +12,8 @@
         <activity
             android:name="com.example.lavajato.ui.activities.LoginActivity"
             android:exported="true" />
+        android:theme="@style/Theme.LavaJato">
+
         <activity
             android:name="com.example.lavajato.ui.activities.MainActivity"
             android:exported="true">
