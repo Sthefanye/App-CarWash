@@ -1,8 +1,8 @@
-package com.example.lavajato.ui.activities
+package com.example.carwash.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.myapplication.R
+import com.example.carwash.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
