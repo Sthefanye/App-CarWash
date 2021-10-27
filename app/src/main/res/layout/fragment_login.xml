@@ -39,7 +39,7 @@
             app:layout_constraintTop_toBottomOf="@+id/etEmail" />
 
         <TextView
-            android:id="@+id/tvEsqueciMinhaSenha"
+            android:id="@+id/tvForgotPassword"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/esqueci_minha_senha"
@@ -58,16 +58,16 @@
             app:layout_constraintTop_toBottomOf="@+id/etPassword" />
 
         <TextView
-            android:id="@+id/createAccount"
+            android:id="@+id/tvCreateAccount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/criar_conta"
             android:textSize="@dimen/body_2"
-            app:layout_constraintBottom_toBottomOf="@+id/tvNaoTemConta"
-            app:layout_constraintStart_toEndOf="@+id/tvNaoTemConta" />
+            app:layout_constraintBottom_toBottomOf="@+id/tvNotAccount"
+            app:layout_constraintStart_toEndOf="@+id/tvNotAccount" />
 
         <TextView
-            android:id="@+id/tvNaoTemConta"
+            android:id="@+id/tvNotAccount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/nao_tem_conta"
