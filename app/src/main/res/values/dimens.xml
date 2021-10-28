@@ -14,4 +14,6 @@
     <dimen name="body_1">12sp</dimen>
     <dimen name="body_2">14sp</dimen>
     <dimen name="body_3">16sp</dimen>
+    <dimen name="body_4">18sp</dimen>
+
 </resources>
