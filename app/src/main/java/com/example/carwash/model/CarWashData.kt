@@ -1,4 +1,6 @@
 package com.example.carwash.model
 
-class CarWashData {
+import androidx.databinding.BaseObservable
+
+class CarWashData : BaseObservable(){
 }
