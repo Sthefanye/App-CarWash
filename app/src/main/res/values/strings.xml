@@ -14,7 +14,13 @@
     <string name="login_failed">"Login failed"</string>
     <string name="login">Login</string>
     <string name="nao_tem_conta">Não tem conta?</string>
-    <string name="criar_conta">Criar Agora</string>
+    <string name="criar_agora">Criar Agora</string>
     <string name="name_user">Olá, Ana Paula</string>
     <string name="bem_vindo_ao_carwash">Bem vindo ao CarWash</string>
+    <string name="criar_uma_conta">CRIAR UMA CONTA</string>
+    <string name="descricao">Visualize o melhor do seu carro</string>
+    <string name="telefone">Telefone</string>
+    <string name="nome">Nome</string>
+    <string name="criar_conta">Criar conta</string>
+    <string name="ja_tem_uma_conta">Já tem uma conta?</string>
 </resources>

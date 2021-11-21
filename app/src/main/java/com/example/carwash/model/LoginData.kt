@@ -20,5 +20,4 @@ class LoginData : BaseObservable() {
             notifyPropertyChanged(BR.senha)
         }
 
-
 }

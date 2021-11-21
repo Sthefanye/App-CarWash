@@ -4,16 +4,26 @@
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="fragment_horizontal_margin">16dp</dimen>
     <dimen name="fragment_vertical_margin">16dp</dimen>
+    <dimen name="padding_drawable_icons_default">15dp</dimen>
+
 
     <!--Dimens Login Fragment-->
     <dimen name="margin_top_default_logo">60dp</dimen>
     <dimen name="margin_top_button">90dp</dimen>
     <dimen name="margin_top_default">90dp</dimen>
 
-    <!--Dimens Login Fragment-->
+
+    <!--Dimens Home Fragment-->
     <dimen name="margin_top_grid_default">70dp</dimen>
     <dimen name="elevation">5dp</dimen>
     <dimen name="margin_left_text">23dp</dimen>
+
+    <!--    Dimens Create Account -->
+    <dimen name="altura_edit_text">350dp</dimen>
+    <dimen name="largura_edit_text">48dp</dimen>
+
+    <dimen name="margin_top">15dp</dimen>
+    <dimen name="margin_top_default_create_account">50dp</dimen>
 
 <!--    Text-->
     <dimen name="body_1">12sp</dimen>
