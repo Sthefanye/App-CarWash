@@ -15,4 +15,6 @@
     <string name="login">Login</string>
     <string name="nao_tem_conta">Não tem conta?</string>
     <string name="criar_conta">Criar Agora</string>
+    <string name="name_user">Olá, Ana Paula</string>
+    <string name="bem_vindo_ao_carwash">Bem vindo ao CarWash</string>
 </resources>
