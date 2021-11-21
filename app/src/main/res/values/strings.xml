@@ -23,4 +23,5 @@
     <string name="nome">Nome</string>
     <string name="criar_conta">Criar conta</string>
     <string name="ja_tem_uma_conta">Já tem uma conta?</string>
+    <string name="salvar">Salvar</string>
 </resources>
