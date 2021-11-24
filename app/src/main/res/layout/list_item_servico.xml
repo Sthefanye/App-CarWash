@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_marginTop="@dimen/margin_top"
+    android:layout_marginLeft="@dimen/margin_top">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="10dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/ivIconCar"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/ic_logo_servico"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/texts"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvTitleServico"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_top"
+            android:fontFamily="@font/raleway_extra_bold"
+            android:text="@string/titulo_servico"
+            android:textColor="@color/blue_dark_primary"
+            android:textSize="@dimen/body_4" />
+
+        <TextView
+            android:id="@+id/tvDescriptionServico"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/raleway_thin_italic"
+            android:text="@string/descricao_servico"
+            android:textColor="@color/blue_dark_primary"
+            android:textSize="@dimen/body_1" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvPrecoServico"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/preco_servico"
+            android:layout_marginTop="@dimen/margin_top"
+            android:fontFamily="@font/raleway_extra_bold"
+            android:textColor="@color/green"
+            android:textSize="@dimen/body_4" />
+
+        <TextView
+            android:id="@+id/tvTempoServico"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/tempo_servico"
+            android:fontFamily="@font/raleway_thin_italic"
+            android:textColor="@color/black"
+            android:textSize="@dimen/body_1" />
+
+
+    </LinearLayout>
+
+</LinearLayout>

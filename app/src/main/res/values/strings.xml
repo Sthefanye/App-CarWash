@@ -30,4 +30,8 @@
     <string name="placa_veiculo">Placa</string>
     <string name="ano_veiculo">Ano</string>
     <string name="cor_veiculo">Cor</string>
+    <string name="descricao_servico">Lavagem exterior completa e pneus, aspiração no interior do veiculo.</string>
+    <string name="titulo_servico">Lavagem Rápida</string>
+    <string name="preco_servico">R$50,00</string>
+    <string name="tempo_servico">30 - 45 min</string>
 </resources>

@@ -41,7 +41,7 @@
 
     <fragment
         android:id="@+id/listaServicos"
-        android:name="com.example.carwash.ui.fragments.ListServicosFragment"
+        android:name="com.example.carwash.ui.ListServicosActivity"
         android:label="listaServicos"
         tools:layout="@layout/fragment_lista_servicos">
 
