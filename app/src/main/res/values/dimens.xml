@@ -6,6 +6,10 @@
     <dimen name="fragment_vertical_margin">16dp</dimen>
     <dimen name="padding_drawable_icons_default">15dp</dimen>
 
+    <!--Arrows dimens-->
+    <dimen name="btn_arrow_layout_width">30dp</dimen>
+    <dimen name="btn_arrow_layout_height">37dp</dimen>
+
 
     <!--Dimens Login Fragment-->
     <dimen name="margin_top_default_logo">60dp</dimen>
@@ -24,6 +28,10 @@
 
     <dimen name="margin_top">15dp</dimen>
     <dimen name="margin_top_default_create_account">50dp</dimen>
+
+    <!--Dimens Fragment Register Vehicle-->
+    <dimen name="margin_left_text_veiculo">20dp</dimen>
+    <dimen name="margin_btn_vehicle">140dp</dimen>
 
 <!--    Text-->
     <dimen name="body_1">12sp</dimen>

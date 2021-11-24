@@ -24,4 +24,10 @@
     <string name="criar_conta">Criar conta</string>
     <string name="ja_tem_uma_conta">Já tem uma conta?</string>
     <string name="salvar">Salvar</string>
+    <string name="editar_conta">Editar conta</string>
+    <string name="veiculo">Vamos cadastrar seu veículo?     Nos informe abaixo os dados dele:</string>
+    <string name="modelo_veiculo">Modelo</string>
+    <string name="placa_veiculo">Placa</string>
+    <string name="ano_veiculo">Ano</string>
+    <string name="cor_veiculo">Cor</string>
 </resources>
