@@ -3,40 +3,54 @@
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="login"
+            type="com.example.carwash.data.observables.LoginFragmentObservables" />
+    </data>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".ui.LoginActivity">
+        android:layout_height="match_parent">
 
         <ImageView
             android:id="@+id/ivLogo"
             android:layout_width="180dp"
             android:layout_height="180dp"
             android:layout_marginTop="@dimen/margin_top_default_logo"
+            android:src="@drawable/ic_logo"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
-            android:id="@+id/etEmail"
-            android:layout_width="350dp"
-            android:layout_height="48dp"
-            android:backgroundTint="@color/line_ed"
+            android:id="@+id/etEmailChangeAccount"
+            android:layout_width="@dimen/altura_edit_text"
+            android:layout_height="@dimen/largura_edit_text"
+            android:backgroundTint="@color/blue_light"
             android:hint="@string/email"
+            android:text="@{login.emailUser}"
+            android:fontFamily="@font/raleway_medium"
+            android:drawableLeft="@drawable/ic_email"
+            android:drawablePadding="@dimen/padding_drawable_icons_default"
             android:layout_marginTop="@dimen/margin_top_default"
             app:layout_constraintEnd_toEndOf="@+id/ivLogo"
             app:layout_constraintStart_toStartOf="@+id/ivLogo"
             app:layout_constraintTop_toBottomOf="@+id/ivLogo" />
 
         <EditText
-            android:id="@+id/etPassword"
-            android:layout_width="350dp"
-            android:layout_height="48dp"
-            android:backgroundTint="@color/line_ed"
+            android:id="@+id/etPasswordChangeAccount"
+            android:layout_width="@dimen/altura_edit_text"
+            android:layout_height="@dimen/largura_edit_text"
+            android:backgroundTint="@color/blue_light"
             android:hint="@string/senha"
-            app:layout_constraintEnd_toEndOf="@+id/etEmail"
-            app:layout_constraintStart_toStartOf="@+id/etEmail"
-            app:layout_constraintTop_toBottomOf="@+id/etEmail" />
+            android:drawableLeft="@drawable/ic_password"
+            android:fontFamily="@font/raleway_medium"
+            android:drawablePadding="@dimen/padding_drawable_icons_default"
+            android:text="@{login.senhaUser}"
+            app:layout_constraintEnd_toEndOf="@+id/etEmailChangeAccount"
+            app:layout_constraintStart_toStartOf="@+id/etEmailChangeAccount"
+            app:layout_constraintTop_toBottomOf="@+id/etEmailChangeAccount" />
 
         <TextView
             android:id="@+id/tvForgotPassword"
@@ -44,29 +58,22 @@
             android:layout_height="wrap_content"
             android:text="@string/esqueci_minha_senha"
             android:textSize="@dimen/body_2"
-            app:layout_constraintEnd_toEndOf="@+id/etPassword"
-            app:layout_constraintTop_toBottomOf="@+id/etPassword" />
+            android:fontFamily="@font/raleway_medium"
+            app:layout_constraintEnd_toEndOf="@+id/etPasswordChangeAccount"
+            app:layout_constraintTop_toBottomOf="@+id/etPasswordChangeAccount" />
 
         <Button
-            android:id="@+id/btnLogin"
+            android:id="@+id/btnLoginChangeAccount"
             android:layout_width="200dp"
             android:layout_height="50dp"
             android:layout_marginTop="@dimen/margin_top_button"
             android:background="@drawable/button_costumization"
             android:text="@string/login"
             android:textSize="@dimen/body_4"
-            app:layout_constraintEnd_toEndOf="@+id/etPassword"
-            app:layout_constraintStart_toStartOf="@+id/etPassword"
-            app:layout_constraintTop_toBottomOf="@+id/etPassword" />
-
-        <TextView
-            android:id="@+id/tvCreateAccount"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/criar_conta"
-            android:textSize="@dimen/body_2"
-            app:layout_constraintBottom_toBottomOf="@+id/tvNotAccount"
-            app:layout_constraintStart_toEndOf="@+id/tvNotAccount" />
+            android:fontFamily="@font/raleway_medium"
+            app:layout_constraintEnd_toEndOf="@+id/etPasswordChangeAccount"
+            app:layout_constraintStart_toStartOf="@+id/etPasswordChangeAccount"
+            app:layout_constraintTop_toBottomOf="@+id/etPasswordChangeAccount" />
 
         <TextView
             android:id="@+id/tvNotAccount"
@@ -74,10 +81,25 @@
             android:layout_height="wrap_content"
             android:text="@string/nao_tem_conta"
             android:textSize="@dimen/body_2"
+            android:fontFamily="@font/raleway_medium"
+            android:layout_marginLeft="@dimen/elevation"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/btnLogin"
-            app:layout_constraintStart_toStartOf="@+id/btnLogin"
-            app:layout_constraintTop_toBottomOf="@+id/btnLogin" />
+            app:layout_constraintStart_toStartOf="@+id/btnLoginChangeAccount"
+            app:layout_constraintTop_toBottomOf="@+id/btnLoginChangeAccount" />
+
+        <TextView
+            android:id="@+id/tvCreateAccount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/elevation"
+            android:fontFamily="@font/raleway_medium"
+            android:text="@string/criar_agora"
+            android:textColor="@color/blue_dark_primary"
+            android:textSize="@dimen/body_2"
+            app:layout_constraintBottom_toBottomOf="@+id/tvNotAccount"
+            app:layout_constraintEnd_toEndOf="@+id/btnLoginChangeAccount"
+            app:layout_constraintStart_toEndOf="@+id/tvNotAccount" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

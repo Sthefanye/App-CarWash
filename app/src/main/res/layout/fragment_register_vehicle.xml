@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="registerVehicle"
+            type="com.example.carwash.data.observables.RegisterVehicleObservables" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageButton
+            android:id="@+id/btnVoltarHome"
+            android:layout_width="@dimen/btn_arrow_layout_width"
+            android:layout_height="@dimen/btn_arrow_layout_height"
+            android:src="@drawable/ic_seta_azul"
+            android:layout_marginLeft="@dimen/elevation"
+            android:layout_marginTop="@dimen/elevation"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvModeloVeiculo"
+            android:layout_width="297dp"
+            android:layout_height="76dp"
+            android:fontFamily="@font/raleway_medium"
+            android:text="@string/veiculo"
+            android:textAlignment="center"
+            android:textColor="@color/blue_dark_primary"
+            android:textSize="@dimen/body_5"
+            android:layout_marginTop="@dimen/margin_top"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnVoltarHome" />
+
+        <EditText
+            android:id="@+id/etModeloVeiculo"
+            android:layout_width="@dimen/altura_edit_text"
+            android:layout_height="@dimen/largura_edit_text"
+            android:layout_marginTop="@dimen/margin_top_default_logo"
+            android:backgroundTint="@color/blue_light"
+            android:fontFamily="@font/raleway_medium"
+            android:hint="@string/modelo_veiculo"
+            android:text="@{registerVehicle.modelo}"
+            app:layout_constraintEnd_toEndOf="@+id/tvModeloVeiculo"
+            app:layout_constraintStart_toStartOf="@+id/tvModeloVeiculo"
+            app:layout_constraintTop_toBottomOf="@+id/tvModeloVeiculo" />
+
+        <EditText
+            android:id="@+id/etPlacaVeiculo"
+            android:layout_width="@dimen/altura_edit_text"
+            android:layout_height="@dimen/largura_edit_text"
+            android:backgroundTint="@color/blue_light"
+            android:fontFamily="@font/raleway_medium"
+            android:text="@{registerVehicle.placa}"
+            android:hint="@string/placa_veiculo"
+            android:layout_marginTop="@dimen/margin_top"
+            app:layout_constraintStart_toStartOf="@+id/etModeloVeiculo"
+            app:layout_constraintTop_toBottomOf="@+id/etModeloVeiculo" />
+
+        <EditText
+            android:id="@+id/etAnoVeiculo"
+            android:layout_width="@dimen/altura_edit_text"
+            android:layout_height="@dimen/largura_edit_text"
+            android:backgroundTint="@color/blue_light"
+            android:fontFamily="@font/raleway_medium"
+            android:text="@{registerVehicle.ano}"
+            android:hint="@string/ano_veiculo"
+            android:layout_marginTop="@dimen/margin_top"
+            app:layout_constraintStart_toStartOf="@+id/etPlacaVeiculo"
+            app:layout_constraintTop_toBottomOf="@+id/etPlacaVeiculo" />
+
+        <EditText
+            android:id="@+id/etCorVeiculo"
+            android:layout_width="@dimen/altura_edit_text"
+            android:layout_height="@dimen/largura_edit_text"
+            android:layout_marginTop="@dimen/margin_top"
+            android:backgroundTint="@color/blue_light"
+            android:fontFamily="@font/raleway_medium"
+            android:text="@{registerVehicle.cor}"
+            android:hint="@string/cor_veiculo"
+            app:layout_constraintStart_toStartOf="@+id/etAnoVeiculo"
+            app:layout_constraintTop_toBottomOf="@+id/etAnoVeiculo" />
+
+        <ImageButton
+            android:id="@+id/btnConfirmRegisterVeiculo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/ic_check_register_veiculo"
+            android:layout_marginTop="@dimen/margin_btn_vehicle"
+            app:layout_constraintEnd_toEndOf="@+id/etCorVeiculo"
+            app:layout_constraintStart_toStartOf="@+id/etCorVeiculo"
+            app:layout_constraintTop_toBottomOf="@+id/etCorVeiculo" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

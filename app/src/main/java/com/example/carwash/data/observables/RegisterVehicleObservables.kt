@@ -1,34 +1,36 @@
-package com.example.carwash.model
+package com.example.carwash.data.observables
 
 import androidx.databinding.BaseObservable
 import androidx.databinding.Bindable
 import com.example.carwash.BR
 
-class CreateAccountData : BaseObservable() {
+object RegisterVehicleObservables : BaseObservable() {
+
     @Bindable
-    var name : String = ""
+    var modelo : String = ""
     set(value) {
         field = value
-        notifyPropertyChanged(BR.name)
+        notifyPropertyChanged(BR.modelo)
     }
 
     @Bindable
-    var email : String = ""
+    var placa : String = ""
         set(value) {
             field = value
-            notifyPropertyChanged(BR.email)
-        }
-    @Bindable
-    var password : String = ""
-        set(value) {
-            field = value
-            notifyPropertyChanged(BR.password)
+            notifyPropertyChanged(BR.placa)
         }
 
     @Bindable
-    var telephone : Int = 0
+    var ano : Int = 0
         set(value) {
             field = value
-            notifyPropertyChanged(BR.telephone)
+            notifyPropertyChanged(BR.ano)
+        }
+
+    @Bindable
+    var cor : String = ""
+        set(value) {
+            field = value
+            notifyPropertyChanged(BR.cor)
         }
 }

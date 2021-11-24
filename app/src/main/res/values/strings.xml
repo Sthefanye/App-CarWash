@@ -14,5 +14,24 @@
     <string name="login_failed">"Login failed"</string>
     <string name="login">Login</string>
     <string name="nao_tem_conta">Não tem conta?</string>
-    <string name="criar_conta">Criar Agora</string>
+    <string name="criar_agora">Criar Agora</string>
+    <string name="name_user">Olá, Ana Paula</string>
+    <string name="bem_vindo_ao_carwash">Bem vindo ao CarWash</string>
+    <string name="criar_uma_conta">CRIAR UMA CONTA</string>
+    <string name="descricao">Visualize o melhor do seu carro</string>
+    <string name="telefone">Telefone</string>
+    <string name="nome">Nome</string>
+    <string name="criar_conta">Criar conta</string>
+    <string name="ja_tem_uma_conta">Já tem uma conta?</string>
+    <string name="salvar">Salvar</string>
+    <string name="editar_conta">Editar conta</string>
+    <string name="veiculo">Vamos cadastrar seu veículo? Nos informe abaixo os dados dele:</string>
+    <string name="modelo_veiculo">Modelo</string>
+    <string name="placa_veiculo">Placa</string>
+    <string name="ano_veiculo">Ano</string>
+    <string name="cor_veiculo">Cor</string>
+    <string name="descricao_servico">Lavagem exterior completa e pneus, aspiração no interior do veiculo.</string>
+    <string name="titulo_servico">Lavagem Rápida</string>
+    <string name="preco_servico">R$50,00</string>
+    <string name="tempo_servico">30 - 45 min</string>
 </resources>

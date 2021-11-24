@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/carwash_nav"
+    app:startDestination="@layout/fragment_home">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.carwash.ui.fragments.HomeFragment"
+        android:label="homeFragment"
+        tools:layout="@layout/fragment_home">
+
+        <action
+            android:id="@+id/nav_frag_home_to_meus_veiculos"
+            app:destination="@id/meusVeiculos"/>
+
+        <action
+            android:id="@+id/nav_frag_home_to_lista_servicos"
+            app:destination="@id/listaServicos"/>
+
+        <action
+            android:id="@+id/nav_frag_home_to_status"
+            app:destination="@id/status" />
+
+        <action
+            android:id="@+id/nav_frag_home_to_edit_account"
+            app:destination="@id/editAccount" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/editAccount"
+        android:name="com.example.carwash.ui.fragments.EditAccountFragment"
+        android:label="editAccount"
+        tools:layout="@layout/fragment_edit_account">
+
+        <action
+            android:id="@+id/nav_edit_account_to_home"
+            app:destination="@id/homeFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/listaServicos"
+        android:name="com.example.carwash.ui.ListServicosActivity"
+        android:label="listaServicos"
+        tools:layout="@layout/fragment_lista_servicos">
+
+        <action
+            android:id="@+id/nav_lista_servicos_to_home"
+            app:destination="@id/homeFragment" />
+
+        <action
+            android:id="@+id/nav_lista_servicos_to_agendar_limpeza"
+            app:destination="@id/agendarLimpeza" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/agendarLimpeza"
+        android:name="com.example.carwash.ui.fragments.RegisterVehicleFragment"
+        android:label="agendarLimpeza"
+        tools:layout="@layout/fragment_agendar_servico">
+
+        <action
+            android:id="@+id/nav_agendar_limpeza_to_home"
+            app:destination="@id/homeFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/status"
+        android:name="com.example.carwash.ui.fragments.RegisterVehicleFragment"
+        android:label="sttaus"
+        tools:layout="@layout/fragment_status">
+
+        <action
+            android:id="@+id/nav_status_to_home"
+            app:destination="@id/homeFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/meusVeiculos"
+        android:name="com.example.carwash.ui.fragments.RegisterVehicleFragment"
+        android:label="sttaus"
+        tools:layout="@layout/fragment_status">
+
+        <action
+            android:id="@+id/nav_meus_veiculos_to_home"
+            app:destination="@id/homeFragment" />
+
+        <action
+            android:id="@+id/nav_meus_veiculos_to_register_veiculos"
+            app:destination="@id/registerVeiculo" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/registerVeiculo"
+        android:name="com.example.carwash.ui.fragments.RegisterVehicleFragment"
+        android:label="registerVehicle"
+        tools:layout="@layout/fragment_register_vehicle">
+
+        <action
+            android:id="@+id/nav_register_veiculos_to_meus_veiculos"
+            app:destination="@id/meusVeiculos" />
+    </fragment>
+
+</navigation>
