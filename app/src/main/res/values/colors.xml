@@ -10,5 +10,8 @@
     <color name="green">#05A11E</color>
 
     <color name="ic_girls_avatar_background">#FFFFFF</color>
+    <color name="ic_girls_avatar_background">#FFFFFF</color>
 
+<!--    UI Login-->
+    <color name="line_ed">#469CFF</color>
 </resources>

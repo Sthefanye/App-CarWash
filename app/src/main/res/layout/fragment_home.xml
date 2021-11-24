@@ -13,109 +13,115 @@
             type="com.example.carwash.ui.bindings.HomeFragmentFormatter" />
     </data>
 
-<androidx.constraintlayout.widget.ConstraintLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+  <androidx.constraintlayout.widget.ConstraintLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="600dp"
-        android:layout_height="200dp"
-        android:src="@drawable/ic_detail_blue_home"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+      <ImageView
+          android:id="@+id/imageView"
+          android:layout_width="600dp"
+          android:layout_height="200dp"
+          android:src="@drawable/ic_detail_blue_home"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageButton
-        android:id="@+id/btnMenu"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/ic_btn_menu"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+      <ImageButton
+          android:id="@+id/btnMenu"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginLeft="10dp"
+          android:layout_marginTop="10dp"
+          android:background="@drawable/ic_btn_menu"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/ivAvatar"
-        android:layout_width="134dp"
-        android:layout_height="128dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="60dp"
-        android:src="@drawable/ic_girl_avatar"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+      <ImageView
+          android:id="@+id/ivAvatar"
+          android:layout_width="134dp"
+          android:layout_height="128dp"
+          android:layout_marginStart="40dp"
+          android:layout_marginTop="60dp"
+          android:src="@drawable/ic_girl_avatar"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/tvNomeUsuario"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/raleway_medium"
-        android:text="@{formatter.formatNameUser(home.nameUser)}"
-        android:hint="@string/name_user"
-        android:textSize="@dimen/body_5"
-        android:layout_marginLeft="@dimen/margin_left_text_veiculo"
-        app:layout_constraintStart_toEndOf="@+id/ivAvatar"
-        app:layout_constraintTop_toTopOf="@+id/ivAvatar" />
+      <TextView
+          android:id="@+id/tvNomeUsuario"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:fontFamily="@font/raleway_medium"
+          android:text="@{formatter.formatNameUser(home.nameUser)}"
+          android:hint="@string/name_user"
+          android:textSize="@dimen/body_5"
+          android:layout_marginLeft="@dimen/margin_left_text_veiculo"
+          app:layout_constraintStart_toEndOf="@+id/ivAvatar"
+          app:layout_constraintTop_toTopOf="@+id/ivAvatar" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/bem_vindo_ao_carwash"
-        android:textColor="@color/white"
-        android:textSize="@dimen/body_3"
-        android:layout_marginLeft="@dimen/margin_left_text_veiculo"
-        app:layout_constraintStart_toStartOf="@+id/tvNomeUsuario"
-        app:layout_constraintTop_toBottomOf="@+id/tvNomeUsuario" />
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="@string/bem_vindo_ao_carwash"
+          android:textColor="@color/white"
+          android:textSize="@dimen/body_3"
+          android:layout_marginLeft="@dimen/margin_left_text_veiculo"
+          app:layout_constraintStart_toStartOf="@+id/tvNomeUsuario"
+          app:layout_constraintTop_toBottomOf="@+id/tvNomeUsuario" />
 
 
-    <GridLayout
-        android:id="@+id/glItensMenu"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_top_grid_default"
-        android:layout_marginBottom="@dimen/margin_top_grid_default"
-        android:background="@drawable/button_home_costumization"
-        android:columnCount="2"
-        android:useDefaultMargins="true"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/imageView"
-        app:layout_constraintStart_toStartOf="@+id/imageView"
-        app:layout_constraintTop_toBottomOf="@+id/imageView">
+      <GridLayout
+          android:id="@+id/glItensMenu"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="@dimen/margin_top_grid_default"
+          android:layout_marginBottom="@dimen/margin_top_grid_default"
+          android:background="@drawable/button_home_costumization"
+          android:columnCount="2"
+          android:useDefaultMargins="true"
+          app:layout_constraintBottom_toBottomOf="parent"
+          app:layout_constraintEnd_toEndOf="@+id/imageView"
+          app:layout_constraintStart_toStartOf="@+id/imageView"
+          app:layout_constraintTop_toBottomOf="@+id/imageView">
 
-        <ImageButton
-            android:id="@+id/icCadastrarVeiculo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/button_home_costumization"
-            android:elevation="@dimen/elevation"
-            android:src="@drawable/ic_cadastrar_veiculo" />
+          <ImageButton
+              android:id="@+id/icCadastrarVeiculo"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:background="@drawable/button_home_costumization"
+              android:elevation="@dimen/elevation"
+              android:src="@drawable/ic_cadastrar_veiculo" />
 
-        <ImageButton
-            android:id="@+id/icAgendarLimpeza"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/button_home_costumization"
-            android:elevation="@dimen/elevation"
-            android:src="@drawable/ic_agendar_limpeza" />
+          <ImageButton
+              android:id="@+id/icAgendarLimpeza"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:background="@drawable/button_home_costumization"
+              android:elevation="@dimen/elevation"
+              android:src="@drawable/ic_agendar_limpeza" />
 
-        <ImageButton
-            android:id="@+id/icStatus"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/button_home_costumization"
-            android:elevation="@dimen/elevation"
-            android:src="@drawable/ic_status" />
+          <ImageButton
+              android:id="@+id/icStatus"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:background="@drawable/button_home_costumization"
+              android:elevation="@dimen/elevation"
+              android:src="@drawable/ic_status" />
 
-        <ImageButton
-            android:id="@+id/icConfiguracoes"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/button_home_costumization"
-            android:elevation="@dimen/elevation"
-            android:src="@drawable/ic_configuracoes" />
+          <ImageButton
+              android:id="@+id/icConfiguracoes"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:background="@drawable/button_home_costumization"
+              android:elevation="@dimen/elevation"
+              android:src="@drawable/ic_configuracoes" />
 
-    </GridLayout>
+      </GridLayout>
+          android:layout_width="177dp"
+          android:layout_height="171dp"
+          android:layout_marginLeft="10dp"
+          android:layout_marginTop="10dp"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toTopOf="parent" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+  </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
