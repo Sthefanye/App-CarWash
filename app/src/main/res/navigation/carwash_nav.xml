@@ -46,7 +46,7 @@
 
         <action
             android:id="@+id/nav_frag_home_to_meus_veiculos"
-            app:destination="@id/meusVeiculos"/>
+            app:destination="@id/fragMeusVeiculos"/>
 
         <action
             android:id="@+id/nav_frag_home_to_lista_servicos"
@@ -110,7 +110,7 @@
     </fragment>
 
     <fragment
-        android:id="@+id/meusVeiculos"
+        android:id="@+id/fragMeusVeiculos"
         android:name="com.example.carwash.ui.fragments.RegisterVehicleFragment"
         android:label="sttaus"
         tools:layout="@layout/fragment_status">
@@ -132,7 +132,7 @@
 
         <action
             android:id="@+id/nav_register_veiculos_to_meus_veiculos"
-            app:destination="@id/meusVeiculos" />
+            app:destination="@id/fragMeusVeiculos" />
     </fragment>
 
 </navigation>

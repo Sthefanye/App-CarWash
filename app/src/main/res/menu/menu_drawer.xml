@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <item android:id="@+id/meusVeiculos"
+        android:title="@string/meus_veiculos">
+    </item>
+
+    <item android:id="@+id/agendarLimpeza"
+        android:title="@string/agendar_limpeza">
+    </item>
+
+    <item android:id="@+id/status"
+        android:title="@string/status">
+    </item>
+
+    <item android:id="@+id/servicos"
+        android:title="@string/servicos">
+    </item>
+
+    <item android:id="@+id/configuracoes"
+        android:title="@string/configuracoes">
+    </item>
+
+    <item android:id="@+id/sair"
+        android:title="@string/sair">
+    </item>
+</menu>

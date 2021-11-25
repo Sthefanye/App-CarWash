@@ -34,4 +34,11 @@
     <string name="titulo_servico">Lavagem Rápida</string>
     <string name="preco_servico">R$50,00</string>
     <string name="tempo_servico">30 - 45 min</string>
+    <string name="confira_seu_historico">Confira seu histórico</string>
+    <string name="meus_veiculos">Meus Veículos</string>
+    <string name="agendar_limpeza">Agendar Limpeza</string>
+    <string name="status">Status</string>
+    <string name="servicos">Serviços</string>
+    <string name="configuracoes">Configurações</string>
+    <string name="sair">Sair</string>
 </resources>
