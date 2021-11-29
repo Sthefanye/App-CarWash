@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/carwash_nav"
+
     app:startDestination="@id/loginFragment">
     <fragment
         android:id="@+id/loginFragment"
@@ -75,6 +76,7 @@
     <fragment
         android:id="@+id/listaServicos"
         android:name="com.example.carwash.ui.fragments.ListServicoFragment"
+
         android:label="listaServicos"
         tools:layout="@layout/fragment_lista_servicos">
 
@@ -111,6 +113,7 @@
 
     <fragment
         android:id="@+id/fragMeusVeiculos"
+
         android:name="com.example.carwash.ui.fragments.RegisterVehicleFragment"
         android:label="sttaus"
         tools:layout="@layout/fragment_status">

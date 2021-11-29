@@ -42,4 +42,5 @@ class LoginFragment : Fragment() {
     companion object {
         const val TAG = "LoginFragment"
     }
+
 }

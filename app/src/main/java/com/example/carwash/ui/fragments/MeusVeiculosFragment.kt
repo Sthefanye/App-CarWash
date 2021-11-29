@@ -1,5 +1,6 @@
 package com.example.carwash.ui.fragments
 
+
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -25,4 +26,5 @@ class MeusVeiculosFragment : Fragment() {
         meusVeiculosBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_meus_veiculos, container, false)
         return meusVeiculosBinding.root
     }
+
 }

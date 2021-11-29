@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/carwash_nav"
+    app:startDestination="@layout/fragment_login">
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.carwash.ui.fragments.LoginFragment"
+        android:label="loginFragment"
+        tools:layout="@layout/fragment_login">
+
+        <action
+            android:id="@+id/nav_frag_login_to_home"
+            app:destination="@id/carwash_nav"
+            app:popUpToInclusive="true">
+        </action>
+
+        <action
+            android:id="@+id/nav_frag_login_to_cadastrar_user"
+            app:destination="@id/cadastrarUsuarioFragment"
+            app:popUpToInclusive="true">
+        </action>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/cadastrarUsuarioFragment"
+        android:name="com.example.carwash.ui.fragments.CreateAccountFragment"
+        android:label="loginFragment"
+        tools:layout="@layout/fragment_create_account">
+
+        <action
+            android:id="@+id/nav_frag_login_to_home"
+            app:destination="@id/carwash_nav"
+            app:popUpToInclusive="true">
+        </action>
+
+    </fragment>
+
+</navigation>
