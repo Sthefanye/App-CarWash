@@ -8,11 +8,10 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import com.example.carwash.R
 import com.example.carwash.databinding.FragmentListaServicosBinding
-import com.example.carwash.databinding.FragmentRegisterVehicleBinding
 
-class RegisterVehicleFragment : Fragment(){
-    private lateinit var registerVeiculoBinding: FragmentRegisterVehicleBinding
+class ListServicoFragment : Fragment() {
 
+    private lateinit var listServicosBinding: FragmentListaServicosBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -23,8 +22,8 @@ class RegisterVehicleFragment : Fragment(){
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        registerVeiculoBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_register_vehicle, container, false)
-        return registerVeiculoBinding.root
+        listServicosBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_lista_servicos, container, false)
+        return listServicosBinding.root
     }
 
 }

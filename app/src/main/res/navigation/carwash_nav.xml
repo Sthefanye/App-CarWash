@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/carwash_nav"
-    app:startDestination="@layout/fragment_login">
+    app:startDestination="@id/loginFragment">
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.example.carwash.ui.fragments.LoginFragment"
@@ -13,14 +13,12 @@
         <action
             android:id="@+id/nav_frag_login_to_home"
             app:destination="@id/homeFragment"
-            app:popUpToInclusive="true">
-        </action>
+            app:popUpToInclusive="true" />
 
         <action
             android:id="@+id/nav_frag_login_to_cadastrar_user"
             app:destination="@id/cadastrarUsuarioFragment"
-            app:popUpToInclusive="true">
-        </action>
+            app:popUpToInclusive="true" />
 
     </fragment>
 
@@ -31,10 +29,9 @@
         tools:layout="@layout/fragment_create_account">
 
         <action
-            android:id="@+id/nav_frag_login_to_home"
+            android:id="@+id/nav_frag_cadastrar_login_to_home"
             app:destination="@id/homeFragment"
-            app:popUpToInclusive="true">
-        </action>
+            app:popUpToInclusive="true" />
 
     </fragment>
 
@@ -46,11 +43,11 @@
 
         <action
             android:id="@+id/nav_frag_home_to_meus_veiculos"
-            app:destination="@id/fragMeusVeiculos"/>
+            app:destination="@id/fragMeusVeiculos" />
 
         <action
             android:id="@+id/nav_frag_home_to_lista_servicos"
-            app:destination="@id/listaServicos"/>
+            app:destination="@id/listaServicos" />
 
         <action
             android:id="@+id/nav_frag_home_to_status"
@@ -59,6 +56,9 @@
         <action
             android:id="@+id/nav_frag_home_to_edit_account"
             app:destination="@id/editAccount" />
+        <action
+            android:id="@+id/nav_frag_home_to_agendarLimpeza"
+            app:destination="@+id/agendarLimpeza" />
     </fragment>
 
     <fragment
@@ -74,7 +74,7 @@
 
     <fragment
         android:id="@+id/listaServicos"
-        android:name="com.example.carwash.ui.ListServicosActivity"
+        android:name="com.example.carwash.ui.fragments.ListServicoFragment"
         android:label="listaServicos"
         tools:layout="@layout/fragment_lista_servicos">
 
@@ -94,7 +94,7 @@
         tools:layout="@layout/fragment_agendar_servico">
 
         <action
-            android:id="@+id/nav_agendar_limpeza_to_home"
+            android:id="@+id/nav_frag_agendar_limpeza_to_home"
             app:destination="@id/homeFragment" />
     </fragment>
 

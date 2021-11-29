@@ -51,7 +51,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/raleway_medium"
-        android:text="@{formatter.formatNameUser(home.nameUser)}"
+        android:text="@{home.nameUser}"
         android:hint="@string/name_user"
         android:textSize="@dimen/body_5"
         android:layout_marginLeft="@dimen/margin_left_text_veiculo"
@@ -84,7 +84,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView">
 
         <ImageButton
-            android:id="@+id/icCadastrarVeiculo"
+            android:id="@+id/ibCadastrarVeiculo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/button_home_costumization"
@@ -92,7 +92,7 @@
             android:src="@drawable/ic_cadastrar_veiculo" />
 
         <ImageButton
-            android:id="@+id/icAgendarLimpeza"
+            android:id="@+id/ibAgendarLimpeza"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/button_home_costumization"
@@ -100,7 +100,7 @@
             android:src="@drawable/ic_agendar_limpeza" />
 
         <ImageButton
-            android:id="@+id/icStatus"
+            android:id="@+id/ibStatus"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/button_home_costumization"
@@ -108,7 +108,7 @@
             android:src="@drawable/ic_status" />
 
         <ImageButton
-            android:id="@+id/icConfiguracoes"
+            android:id="@+id/ibConfiguracoes"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/button_home_costumization"
