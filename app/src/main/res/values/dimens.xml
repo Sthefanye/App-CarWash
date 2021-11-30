@@ -32,7 +32,6 @@
     <dimen name="margin_left_text_veiculo">20dp</dimen>
     <dimen name="margin_btn_vehicle">140dp</dimen>
 
-
 <!--    Text-->
     <dimen name="body_1">12sp</dimen>
     <dimen name="body_2">14sp</dimen>

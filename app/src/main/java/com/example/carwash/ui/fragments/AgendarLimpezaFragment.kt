@@ -1,6 +1,5 @@
 package com.example.carwash.ui.fragments
 
-
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,15 +7,14 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import com.example.carwash.R
-import com.example.carwash.databinding.FragmentStatusBinding
+import com.example.carwash.databinding.FragmentAgendarServicoBinding
 
+class AgendarLimpezaFragment : Fragment() {
 
-class StatusFragment : Fragment() {
-    private lateinit var statusBinding: FragmentStatusBinding
+    private lateinit var agendarServicoBinding: FragmentAgendarServicoBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
     }
 
     override fun onCreateView(
@@ -24,8 +22,7 @@ class StatusFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        statusBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_status, container, false)
-        return statusBinding.root
+        agendarServicoBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_agendar_servico, container, false)
+        return agendarServicoBinding.root
     }
-
 }

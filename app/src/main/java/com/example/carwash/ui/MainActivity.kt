@@ -5,7 +5,8 @@ import android.os.Bundle
 import com.example.carwash.R
 import com.google.firebase.database.FirebaseDatabase
 
-class MainActivity : AppCompatActivity() {
+
+class MainActivity : AppCompatActivity(){
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -14,3 +15,4 @@ class MainActivity : AppCompatActivity() {
         databaseReference.child("teste").push().setValue("100")
     }
 }
+

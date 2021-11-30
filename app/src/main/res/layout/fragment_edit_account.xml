@@ -115,7 +115,7 @@
 
 
         <Button
-            android:id="@+id/btnLoginChangeAccount"
+            android:id="@+id/btnSaveAccount"
             android:layout_width="200dp"
             android:layout_height="50dp"
             android:layout_marginTop="@dimen/margin_top_default_create_account"
