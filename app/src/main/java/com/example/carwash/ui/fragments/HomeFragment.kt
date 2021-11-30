@@ -29,16 +29,16 @@ class HomeFragment : Fragment(){
     }
 
     fun navigate(){
-        homeBinding.ibCadastrarVeiculo.setOnClickListener {
+        homeBinding.icCadastrarVeiculo.setOnClickListener {
             findNavController().navigate(R.id.nav_frag_home_to_meus_veiculos)
         }
-        homeBinding.ibAgendarLimpeza.setOnClickListener {
+        homeBinding.icAgendarLimpeza.setOnClickListener {
             findNavController().navigate(R.id.nav_frag_home_to_agendarLimpeza)
         }
-        homeBinding.ibStatus.setOnClickListener {
+        homeBinding.icStatus.setOnClickListener {
             findNavController().navigate(R.id.nav_frag_home_to_status)
         }
-        homeBinding.ibConfiguracoes.setOnClickListener {
+        homeBinding.icConfiguracoes.setOnClickListener {
             findNavController().navigate(R.id.nav_frag_home_to_edit_account)
         }
     }
