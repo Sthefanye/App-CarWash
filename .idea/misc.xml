@@ -10,7 +10,10 @@
         <entry key="..\:/Users/leonardo.valcacio/Projetos/CarWash/LavaJato/app/src/main/res/drawable/ic_cadastrar_veiculo.xml" value="0.3880208333333333" />
         <entry key="..\:/Users/leonardo.valcacio/Projetos/CarWash/LavaJato/app/src/main/res/drawable/ic_configuracoes.xml" value="0.3880208333333333" />
         <entry key="..\:/Users/leonardo.valcacio/Projetos/CarWash/LavaJato/app/src/main/res/drawable/ic_email.xml" value="0.3880208333333333" />
+        <entry key="..\:/Users/leonardo.valcacio/Projetos/CarWash/LavaJato/app/src/main/res/drawable/ic_home_agendar_limpeza.xml" value="0.2037037037037037" />
+        <entry key="..\:/Users/leonardo.valcacio/Projetos/CarWash/LavaJato/app/src/main/res/drawable/ic_home_confiuracoes.xml" value="0.2037037037037037" />
         <entry key="..\:/Users/leonardo.valcacio/Projetos/CarWash/LavaJato/app/src/main/res/drawable/ic_line.xml" value="0.3880208333333333" />
+        <entry key="..\:/Users/leonardo.valcacio/Projetos/CarWash/LavaJato/app/src/main/res/drawable/ic_meus_veiculos.xml" value="0.22552083333333334" />
         <entry key="..\:/Users/leonardo.valcacio/Projetos/CarWash/LavaJato/app/src/main/res/drawable/ic_name.xml" value="0.3880208333333333" />
         <entry key="..\:/Users/leonardo.valcacio/Projetos/CarWash/LavaJato/app/src/main/res/drawable/ic_password.xml" value="0.3880208333333333" />
         <entry key="..\:/Users/leonardo.valcacio/Projetos/CarWash/LavaJato/app/src/main/res/drawable/ic_rectangle_toolbar.xml" value="0.3880208333333333" />
@@ -19,7 +22,7 @@
         <entry key="..\:/Users/leonardo.valcacio/Projetos/CarWash/LavaJato/app/src/main/res/layout/fragment_agendar_servico.xml" value="0.10182370820668693" />
         <entry key="..\:/Users/leonardo.valcacio/Projetos/CarWash/LavaJato/app/src/main/res/layout/fragment_create_account.xml" value="0.33" />
         <entry key="..\:/Users/leonardo.valcacio/Projetos/CarWash/LavaJato/app/src/main/res/layout/fragment_edit_account.xml" value="0.22" />
-        <entry key="..\:/Users/leonardo.valcacio/Projetos/CarWash/LavaJato/app/src/main/res/layout/fragment_home.xml" value="0.22267206477732793" />
+        <entry key="..\:/Users/leonardo.valcacio/Projetos/CarWash/LavaJato/app/src/main/res/layout/fragment_home.xml" value="0.22" />
         <entry key="..\:/Users/leonardo.valcacio/Projetos/CarWash/LavaJato/app/src/main/res/layout/fragment_login.xml" value="0.2" />
         <entry key="..\:/Users/leonardo.valcacio/Projetos/CarWash/LavaJato/app/src/main/res/layout/introduction_activity.xml" value="0.371875" />
         <entry key="..\:/Users/leonardo.valcacio/Projetos/CarWash/LavaJato/app/src/main/res/layout/login_activity.xml" value="0.371875" />
