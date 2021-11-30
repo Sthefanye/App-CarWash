@@ -8,9 +8,6 @@
         <variable
             name="home"
             type="com.example.carwash.data.observables.HomeFragmentObservable" />
-        <variable
-            name="formatter"
-            type="com.example.carwash.ui.bindings.HomeFragmentFormatter" />
     </data>
 
   <androidx.constraintlayout.widget.ConstraintLayout
@@ -51,7 +48,7 @@
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:fontFamily="@font/raleway_medium"
-          android:text="@{formatter.formatNameUser(home.nameUser)}"
+          
           android:hint="@string/name_user"
           android:textSize="@dimen/body_5"
           android:layout_marginLeft="@dimen/margin_left_text_veiculo"
