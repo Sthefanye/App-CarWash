@@ -48,7 +48,7 @@
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:fontFamily="@font/raleway_medium"
-          
+
           android:hint="@string/name_user"
           android:textSize="@dimen/body_5"
           android:layout_marginLeft="@dimen/margin_left_text_veiculo"
