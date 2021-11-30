@@ -6,12 +6,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.example.carwash.R
 import com.example.carwash.databinding.FragmentAgendarServicoBinding
 
 class AgendarLimpezaFragment : Fragment() {
 
-    private lateinit var agendarServicoBinding: FragmentAgendarServicoBinding
+    private lateinit var agendarLimpezaBinding: FragmentAgendarServicoBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,7 +23,8 @@ class AgendarLimpezaFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        agendarServicoBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_agendar_servico, container, false)
-        return agendarServicoBinding.root
+        agendarLimpezaBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_agendar_servico, container, false)
+        return agendarLimpezaBinding.root
     }
+
 }

@@ -42,7 +42,7 @@
             android:layout_marginLeft="@dimen/margin_left_text_veiculo"
             android:fontFamily="@font/raleway_medium"
             android:hint="@string/name_user"
-            android:text="Olá Ana"
+            android:text="@string/ola_ana_paula"
             android:textSize="@dimen/body_5"
             app:layout_constraintStart_toEndOf="@+id/ivAvatar"
             app:layout_constraintTop_toTopOf="@+id/ivAvatar" />
@@ -138,7 +138,7 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/button_home_costumization"
                 android:elevation="@dimen/elevation"
-                android:src="@drawable/ic_home_meus_veiculos" />
+                android:src="@drawable/ic_home_agendar_limpeza" />
 
             <ImageButton
                 android:id="@+id/icStatus"

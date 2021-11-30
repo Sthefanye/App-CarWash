@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.example.carwash.R
 import com.example.carwash.databinding.FragmentLoginBinding
 import com.example.carwash.databinding.FragmentMeusVeiculosBinding
@@ -24,7 +25,16 @@ class MeusVeiculosFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         meusVeiculosBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_meus_veiculos, container, false)
+        navigateAgendarLimpezaToHome()
+
+
         return meusVeiculosBinding.root
+    }
+
+    private fun navigateAgendarLimpezaToHome(){
+        meusVeiculosBinding.btnMeusVeiculosToHome.setOnClickListener {
+            findNavController().navigate(R.id.nav_meus_veiculos_to_home)
+        }
     }
 
 }

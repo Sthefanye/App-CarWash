@@ -4,14 +4,6 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <data>
-        <variable
-            name="home"
-            type="com.example.carwash.data.observables.HomeFragmentObservable" />
-        <variable
-            name="formatter"
-            type="com.example.carwash.ui.bindings.HomeFragmentFormatter" />
-    </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -28,7 +20,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageButton
-            android:id="@+id/btnMenu"
+            android:id="@+id/btnVoltar"
             android:layout_width="@dimen/btn_arrow_layout_width"
             android:layout_height="@dimen/btn_arrow_layout_height"
             android:layout_marginLeft="10dp"
@@ -45,11 +37,10 @@
             android:textSize="@dimen/body_5"
             android:fontFamily="@font/raleway_bold"
             android:layout_marginRight="10dp"
-            app:layout_constraintBottom_toBottomOf="@+id/btnMenu"
+            app:layout_constraintBottom_toBottomOf="@+id/btnVoltar"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/btnMenu"
-            app:layout_constraintTop_toTopOf="@+id/btnMenu" />
-
+            app:layout_constraintStart_toEndOf="@+id/btnVoltar"
+            app:layout_constraintTop_toTopOf="@+id/btnVoltar" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
