@@ -18,6 +18,7 @@ class LoginData : BaseObservable() {
         set(value) {
             field = value
             notifyPropertyChanged(BR.senha)
+
         }
 
 }
