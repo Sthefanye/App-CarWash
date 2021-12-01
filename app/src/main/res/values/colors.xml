@@ -8,8 +8,7 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="green">#05A11E</color>
-    <color name="ic_girls_avatar_background">#FFFFFF</color>
-<!--    UI Login-->
+    <!--    UI Login-->
     <color name="line_ed">#469CFF</color>
     <color name="ic_girls_avatar_background">#FFFFFF</color>
 </resources>
