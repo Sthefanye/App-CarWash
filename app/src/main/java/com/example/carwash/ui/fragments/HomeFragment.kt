@@ -10,7 +10,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.carwash.R
 import com.example.carwash.databinding.FragmentHomeBinding
 
-class HomeFragment : Fragment(){
+class HomeFragment : Fragment() {
     private lateinit var homeBinding: FragmentHomeBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,22 +24,41 @@ class HomeFragment : Fragment(){
     ): View {
 
         homeBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_home, container, false)
-        navigate()
+        navigateHomeToConfiguracoes()
+        navigateHomeToMeusVeiculos()
+        navigateHomeToStatus()
+        navigateHomeToAgendarLimpeza()
+
         return homeBinding.root
     }
 
-    fun navigate(){
+    private fun navigateHomeToMeusVeiculos() {
         homeBinding.icCadastrarVeiculo.setOnClickListener {
             findNavController().navigate(R.id.nav_frag_home_to_meus_veiculos)
         }
+    }
+
+    private fun navigateHomeToAgendarLimpeza(){
         homeBinding.icAgendarLimpeza.setOnClickListener {
             findNavController().navigate(R.id.nav_frag_home_to_agendarLimpeza)
         }
+    }
+
+    private fun navigateHomeToStatus() {
         homeBinding.icStatus.setOnClickListener {
             findNavController().navigate(R.id.nav_frag_home_to_status)
         }
+    }
+
+    private fun navigateHomeToConfiguracoes() {
         homeBinding.icConfiguracoes.setOnClickListener {
             findNavController().navigate(R.id.nav_frag_home_to_edit_account)
         }
+    }
+
+
+
+    private fun navigateHomeToConfig() {
+
     }
 }

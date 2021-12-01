@@ -38,6 +38,7 @@ class LoginFragment : Fragment(), View.OnClickListener {
     ): View {
         loginBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_login, container, false)
         navigateToHome()
+        createAccount()
 
         return loginBinding.root
     }
@@ -46,6 +47,12 @@ class LoginFragment : Fragment(), View.OnClickListener {
 
         loginBinding.btnLoginChangeAccount.setOnClickListener(this)
         loginBinding.tvCreateAccount.setOnClickListener(this)
+    }
+
+    private fun createAccount(){
+        loginBinding.tvCreateAccount.setOnClickListener {
+            findNavController().navigate(R.id.nav_frag_login_to_cadastrar_user)
+        }
     }
 
 

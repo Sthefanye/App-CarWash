@@ -90,7 +90,7 @@
 
     <fragment
         android:id="@+id/agendarLimpeza"
-        android:name="com.example.carwash.ui.fragments.RegisterVehicleFragment"
+        android:name="com.example.carwash.ui.fragments.AgendarLimpezaFragment"
         android:label="agendarLimpeza"
         tools:layout="@layout/fragment_agendar_servico">
 
@@ -101,7 +101,7 @@
 
     <fragment
         android:id="@+id/status"
-        android:name="com.example.carwash.ui.fragments.RegisterVehicleFragment"
+        android:name="com.example.carwash.ui.fragments.StatusFragment"
         android:label="sttaus"
         tools:layout="@layout/fragment_status">
 
@@ -112,10 +112,9 @@
 
     <fragment
         android:id="@+id/fragMeusVeiculos"
-
-        android:name="com.example.carwash.ui.fragments.RegisterVehicleFragment"
+        android:name="com.example.carwash.ui.fragments.MeusVeiculosFragment"
         android:label="sttaus"
-        tools:layout="@layout/fragment_status">
+        tools:layout="@layout/fragment_register_vehicle">
 
         <action
             android:id="@+id/nav_meus_veiculos_to_home"
@@ -130,7 +129,7 @@
         android:id="@+id/registerVeiculo"
         android:name="com.example.carwash.ui.fragments.RegisterVehicleFragment"
         android:label="registerVehicle"
-        tools:layout="@layout/fragment_register_vehicle">
+        tools:layout="@layout/fragment_meus_veiculos">
 
         <action
             android:id="@+id/nav_register_veiculos_to_meus_veiculos"

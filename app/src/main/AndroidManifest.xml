@@ -12,7 +12,11 @@
         <activity
             android:name=".ui.MainActivity"
             android:exported="true"
-            android:theme="@style/Theme.CarWash">
+            android:theme="@style/Theme.CarWash"
+            android:allowEmbedded="false"
+            android:alwaysRetainTaskState="false"
+            android:autoRemoveFromRecents="true"
+            android:clearTaskOnLaunch="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

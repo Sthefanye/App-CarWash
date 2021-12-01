@@ -96,6 +96,9 @@
             android:text="@string/criar_agora"
             android:textColor="@color/blue_dark_primary"
             android:textSize="@dimen/body_2"
+            android:onClick="onClickCreateAccount"
+            android:clickable="true"
+            android:focusable="true"
             app:layout_constraintBottom_toBottomOf="@+id/tvNotAccount"
             app:layout_constraintEnd_toEndOf="@+id/btnLoginChangeAccount"
             app:layout_constraintStart_toEndOf="@+id/tvNotAccount" />
