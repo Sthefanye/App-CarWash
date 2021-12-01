@@ -16,8 +16,14 @@ import com.example.carwash.R
 import com.example.carwash.databinding.FragmentLoginBinding
 import kotlinx.android.synthetic.main.fragment_login.*
 import com.example.carwash.util.Util
+import com.google.android.gms.tasks.Task
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 
 class LoginFragment : Fragment(), View.OnClickListener {
+
+    var auth: FirebaseAuth? = null
 
     private lateinit var loginBinding: FragmentLoginBinding
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -48,6 +54,8 @@ class LoginFragment : Fragment(), View.OnClickListener {
     }
 
     override fun onClick(p0: View?) {
+        auth = Firebase.auth
+
         when (p0?.id) {
 
             btnLoginChangeAccount.id -> {
@@ -66,16 +74,37 @@ class LoginFragment : Fragment(), View.OnClickListener {
         if (!email.trim().equals("") && !password.trim().equals("")) {
             btnLoginChangeAccount.setOnClickListener {
 
-                loginBinding.btnLoginChangeAccount.setOnClickListener {
-                    findNavController().navigate(R.id.nav_frag_login_to_home)
+                if(Util.statusInternet(requireContext())){
+                    login(email,password)
+                }else{
+                    Util.exibirToast(requireContext(), "Sem conexão com a internet")
                 }
-                Util.exibirToast(requireContext(), "Login com sucesso")
             }
-
-
         } else {
             Util.exibirToast(requireContext(), "campo em branco")
         }
 
     }
+
+    fun login(email:String,password:String){
+
+        auth?.signInWithEmailAndPassword(email,password)?.addOnCompleteListener(){task ->
+
+            if(task.isSuccessful){
+
+                Util.exibirToast(requireContext(),"Sucesso ao logar")
+                loginBinding.btnLoginChangeAccount.setOnClickListener {
+                    findNavController().navigate(R.id.nav_frag_login_to_home)
+                }
+
+            }else{
+
+                Util.exibirToast(requireContext(),"Usuário ou senha inválido")
+
+            }
+
+        }
+
+    }
 }
+
