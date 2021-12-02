@@ -17,6 +17,7 @@ import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.example.carwash.R
 import com.example.carwash.databinding.FragmentLoginBinding
+import com.example.carwash.util.DialogProgress
 import kotlinx.android.synthetic.main.fragment_login.*
 import com.example.carwash.util.Util
 import com.google.android.gms.tasks.Task
@@ -100,19 +101,45 @@ class LoginFragment : Fragment(), View.OnClickListener {
 
     fun login(email: String, password: String) {
 
+        val dialogProgress = DialogProgress()
+        dialogProgress.show(parentFragmentManager,"1")
+
         auth?.signInWithEmailAndPassword(email, password)?.addOnCompleteListener { task ->
 
+            dialogProgress.dismiss()
+
             if (task.isSuccessful) {
+
                 Util.exibirToast(requireContext(), "Sucesso ao logar")
                 findNavController().navigate(R.id.nav_frag_login_to_home)
 
 
             } else {
 
-                Util.exibirToast(requireContext(), "Usuário ou senha inválido")
+                //Util.exibirToast(requireContext(), "Usuário ou senha inválido ${task.exception.toString()}")
+
+                val erro = task.exception.toString()
+
+                errorsFirebase(erro)
+
+                Log.d("logcat",task.exception.toString())
 
             }
 
+        }
+
+    }
+
+    fun errorsFirebase(erro:String){
+
+        if(erro.contains("There is no user record corresponding to this identifier. The user may have been deleted." )){
+            Util.exibirToast(requireContext(),"E-mail não cadastrado")
+        }else if(erro.contains("The password is invalid or the user does not have a password.")){
+            Util.exibirToast(requireContext(),"Usuário ou Senha inválida")
+        }else if(erro.contains("The password is invalid or the user does not have a password.")) {
+            Util.exibirToast(requireContext(), "Este e-mail não é válido")
+        }else{
+            Util.exibirToast(requireContext(), "Ocorreu um erro inesperado")
         }
 
     }
