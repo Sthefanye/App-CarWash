@@ -1,8 +1,11 @@
 package com.example.carwash.ui.fragments
 
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.os.Bundle
+import android.text.InputType
+import android.text.method.PasswordTransformationMethod
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -23,7 +26,7 @@ import com.google.firebase.ktx.Firebase
 
 class LoginFragment : Fragment(), View.OnClickListener {
 
-    var auth: FirebaseAuth? = null
+    private var auth: FirebaseAuth? = null
 
     private lateinit var loginBinding: FragmentLoginBinding
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -49,7 +52,7 @@ class LoginFragment : Fragment(), View.OnClickListener {
         loginBinding.tvCreateAccount.setOnClickListener(this)
     }
 
-    private fun createAccount(){
+    private fun createAccount() {
         loginBinding.tvCreateAccount.setOnClickListener {
             findNavController().navigate(R.id.nav_frag_login_to_cadastrar_user)
         }
@@ -72,6 +75,7 @@ class LoginFragment : Fragment(), View.OnClickListener {
     }
 
 
+    @SuppressLint("ResourceAsColor")
     private fun buttonLogin() {
 
         val email = etEmailChangeAccount.text.toString()
@@ -80,10 +84,11 @@ class LoginFragment : Fragment(), View.OnClickListener {
         //trim remove os espaços do input
         if (!email.trim().equals("") && !password.trim().equals("")) {
             btnLoginChangeAccount.setOnClickListener {
+              //  btnLoginChangeAccount.setBackgroundResource(R.color.white)
 
-                if(Util.statusInternet(requireContext())){
-                    login(email,password)
-                }else{
+                if (Util.statusInternet(requireContext())) {
+                    login(email, password)
+                } else {
                     Util.exibirToast(requireContext(), "Sem conexão com a internet")
                 }
             }
@@ -93,25 +98,24 @@ class LoginFragment : Fragment(), View.OnClickListener {
 
     }
 
-    fun login(email:String,password:String){
+    fun login(email: String, password: String) {
 
-        auth?.signInWithEmailAndPassword(email,password)?.addOnCompleteListener(){task ->
+        auth?.signInWithEmailAndPassword(email, password)?.addOnCompleteListener { task ->
 
-            if(task.isSuccessful){
+            if (task.isSuccessful) {
+                Util.exibirToast(requireContext(), "Sucesso ao logar")
+                findNavController().navigate(R.id.nav_frag_login_to_home)
 
-                Util.exibirToast(requireContext(),"Sucesso ao logar")
-                loginBinding.btnLoginChangeAccount.setOnClickListener {
-                    findNavController().navigate(R.id.nav_frag_login_to_home)
-                }
 
-            }else{
+            } else {
 
-                Util.exibirToast(requireContext(),"Usuário ou senha inválido")
+                Util.exibirToast(requireContext(), "Usuário ou senha inválido")
 
             }
 
         }
 
     }
+
 }
 

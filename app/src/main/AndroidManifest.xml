@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CarWash">
         <activity
-            android:name=".ui.MainActivity"
+            android:name=".ui.activities.MainActivity"
             android:exported="true"
             android:theme="@style/Theme.CarWash"
             android:allowEmbedded="false"
