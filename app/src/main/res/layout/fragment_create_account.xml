@@ -6,8 +6,8 @@
 
     <data>
         <variable
-            name="login"
-            type="com.example.carwash.data.observables.LoginFragmentObservables" />
+            name="criarConta"
+            type="com.example.carwash.model.CreateAccountData" />
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -66,6 +66,7 @@
             android:layout_height="@dimen/largura_edit_text"
             android:backgroundTint="@color/blue_light"
             android:hint="@string/nome"
+            android:inputType="text"
             android:fontFamily="@font/raleway_medium"
             android:drawableLeft="@drawable/ic_name"
             android:drawablePadding="@dimen/padding_drawable_icons_default"
@@ -80,6 +81,7 @@
             android:layout_height="@dimen/largura_edit_text"
             android:backgroundTint="@color/blue_light"
             android:hint="@string/email"
+            android:inputType="text"
             android:fontFamily="@font/raleway_medium"
             android:drawableLeft="@drawable/ic_email"
             android:drawablePadding="@dimen/padding_drawable_icons_default"
@@ -94,6 +96,7 @@
             android:layout_height="@dimen/largura_edit_text"
             android:backgroundTint="@color/blue_light"
             android:hint="@string/senha"
+            android:inputType="text"
             android:fontFamily="@font/raleway_medium"
             android:drawableLeft="@drawable/ic_password"
             android:drawablePadding="@dimen/padding_drawable_icons_default"
@@ -108,6 +111,7 @@
             android:layout_height="@dimen/largura_edit_text"
             android:backgroundTint="@color/blue_light"
             android:hint="@string/telefone"
+            android:inputType="number"
             android:fontFamily="@font/raleway_medium"
             android:drawableLeft="@drawable/ic_telephone"
             android:drawablePadding="@dimen/padding_drawable_icons_default"
@@ -118,7 +122,7 @@
 
 
         <Button
-            android:id="@+id/btnLoginChangeAccount"
+            android:id="@+id/btnCreateChangeAccount"
             android:layout_width="200dp"
             android:layout_height="50dp"
             android:layout_marginTop="@dimen/margin_top_default_create_account"
@@ -140,8 +144,8 @@
             android:textColor="@color/grey"
             android:textSize="@dimen/body_3"
             android:layout_marginTop="@dimen/margin_top"
-            app:layout_constraintStart_toStartOf="@+id/btnLoginChangeAccount"
-            app:layout_constraintTop_toBottomOf="@+id/btnLoginChangeAccount" />
+            app:layout_constraintStart_toStartOf="@+id/btnCreateChangeAccount"
+            app:layout_constraintTop_toBottomOf="@+id/btnCreateChangeAccount" />
 
         <TextView
             android:id="@+id/tvLoginCreateAccount"

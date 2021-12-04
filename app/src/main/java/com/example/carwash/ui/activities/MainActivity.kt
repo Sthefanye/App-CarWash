@@ -14,7 +14,6 @@ class MainActivity : AppCompatActivity(){
         window.addFlags(Window.FEATURE_NO_TITLE)
         val firebaseDatabase = FirebaseDatabase.getInstance()
         val databaseReference = firebaseDatabase.reference
-        databaseReference.child("teste").push().setValue("100")
 
     }
 }
