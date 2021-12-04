@@ -70,25 +70,25 @@ class CreateAccountFragment : Fragment() {
                 !dadosUsuario.userNumber.trim().equals("") &&
                 !dadosUsuario.userName.trim().equals("")) {
 
-                    databaseReference.child("Users").child("03").child("email").setValue(dadosUsuario.userEmail)
-                    databaseReference.child("Users").child("03").child("name").setValue(dadosUsuario.userName)
-                    databaseReference.child("Users").child("03").child("telephone").setValue(dadosUsuario.userNumber)
-                    databaseReference.child("Users").child("03").child("password").setValue(dadosUsuario.userPassword)
+                val userid = etEmailChangeAccount.id.toString()
+
+                    databaseReference.child("Users").child(userid).child("email").setValue(dadosUsuario.userEmail)
+                    databaseReference.child("Users").child(userid).child("name").setValue(dadosUsuario.userName)
+                    databaseReference.child("Users").child(userid).child("telephone").setValue(dadosUsuario.userNumber)
+                    databaseReference.child("Users").child(userid).child("password").setValue(dadosUsuario.userPassword)
 
                     usuario.createUserWithEmailAndPassword(dadosUsuario.userEmail, dadosUsuario.userPassword)
                         .addOnCompleteListener(requireActivity()) { task ->
                             if (task.isSuccessful) {
                                 // Sign in success, update UI with the signed-in user's information
-                                DialogProgress().show(parentFragmentManager,"1")
-
                                 findNavController().navigate(R.id.nav_frag_cadastrar_login_to_home)
+                                Util.exibirToast(requireContext(),"Conta criada com sucesso")
 
                                 Log.d("logcat", "createUserWithEmail:success")
                                 val user = auth?.currentUser
                             } else {
                                 val erro = task.exception.toString()
                                 errorsFirebase(erro)
-
                                 Log.d("logcat",task.exception.toString())
                             }
                         }
