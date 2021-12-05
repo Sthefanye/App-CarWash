@@ -9,7 +9,7 @@
         android:layout_height="match_parent">
 
         <ImageView
-            android:id="@+id/imageView"
+            android:id="@+id/background"
             android:layout_width="434dp"
             android:layout_height="109dp"
             android:src="@drawable/ic_toolbar"
@@ -45,12 +45,24 @@
         <ListView
             android:id="@+id/lvMeusVeiculos"
             android:layout_width="match_parent"
-            android:layout_height="400dp"
-            app:layout_constraintEnd_toEndOf="@+id/imageView"
-            app:layout_constraintStart_toStartOf="@+id/imageView"
-            app:layout_constraintTop_toBottomOf="@+id/imageView">
+            android:layout_height="575dp"
+            tools:listitem="@layout/list_item_meus_veiculos"
+            app:layout_constraintEnd_toEndOf="@+id/background"
+            app:layout_constraintStart_toStartOf="@+id/background"
+            app:layout_constraintTop_toBottomOf="@+id/background">
 
         </ListView>
+
+        <ImageButton
+            android:id="@+id/btnAddVehicle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_add"
+            android:layout_marginBottom="@dimen/body_5"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/lvMeusVeiculos"
+            app:layout_constraintStart_toStartOf="@+id/lvMeusVeiculos"
+            app:layout_constraintTop_toBottomOf="@+id/lvMeusVeiculos" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

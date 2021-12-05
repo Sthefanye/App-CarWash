@@ -26,6 +26,7 @@ class MeusVeiculosFragment : Fragment() {
     ): View {
         meusVeiculosBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_meus_veiculos, container, false)
         navigateAgendarLimpezaToHome()
+        navigateCadastrarVeiculo()
 
 
         return meusVeiculosBinding.root
@@ -34,6 +35,12 @@ class MeusVeiculosFragment : Fragment() {
     private fun navigateAgendarLimpezaToHome(){
         meusVeiculosBinding.btnMeusVeiculosToHome.setOnClickListener {
             findNavController().navigate(R.id.nav_meus_veiculos_to_home)
+        }
+    }
+
+    private fun navigateCadastrarVeiculo(){
+        meusVeiculosBinding.btnAddVehicle.setOnClickListener {
+            findNavController().navigate(R.id.nav_meus_veiculos_to_register_veiculos)
         }
     }
 

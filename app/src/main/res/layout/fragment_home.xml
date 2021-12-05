@@ -68,21 +68,21 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageButton
-            android:id="@+id/btnMenu"
+            android:id="@+id/btnSair"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/ic_btn_menu"
-            app:layout_constraintStart_toStartOf="parent"
+            android:background="@drawable/ic_btn_sair"
+            android:layout_marginTop="@dimen/body_1"
+            android:layout_marginRight="@dimen/body_5"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
             android:id="@+id/ivAvatar"
             android:layout_width="134dp"
             android:layout_height="128dp"
-            android:layout_marginStart="40dp"
-            android:layout_marginTop="60dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="40dp"
             android:src="@drawable/ic_girl_avatar"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

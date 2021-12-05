@@ -44,7 +44,7 @@ class CreateAccountFragment : Fragment() {
 
     private fun navigateToLogin() {
         createAccountBinding.tvLoginCreateAccount.setOnClickListener {
-            findNavController().navigate(R.id.nav_frag_cadastrar_login_to_home)
+            findNavController().navigate(R.id.nav_frag_cadastrar_login_to_login)
         }
     }
 
