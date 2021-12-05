@@ -87,14 +87,15 @@
 
         <EditText
             android:id="@+id/etPasswordChangeAccount"
-            android:layout_width="@dimen/altura_edit_text"
-            android:layout_height="@dimen/largura_edit_text"
+            android:layout_width="343dp"
+            android:layout_height="41dp"
+            android:layout_marginTop="@dimen/margin_top"
             android:backgroundTint="@color/blue_light"
-            android:hint="@string/senha"
-            android:fontFamily="@font/raleway_medium"
             android:drawableLeft="@drawable/ic_password"
             android:drawablePadding="@dimen/padding_drawable_icons_default"
-            android:layout_marginTop="@dimen/margin_top"
+            android:fontFamily="@font/raleway_medium"
+            android:hint="@string/senha"
+            android:inputType="textPassword"
             app:layout_constraintEnd_toEndOf="@+id/etEmailChangeAccount"
             app:layout_constraintStart_toStartOf="@+id/etEmailChangeAccount"
             app:layout_constraintTop_toBottomOf="@+id/etEmailChangeAccount" />

@@ -40,7 +40,7 @@ class RegisterVehicleFragment : Fragment(){
 
     private fun navigateToMeusVeiculos() {
         registerVeiculoBinding.btnConfirmRegisterVeiculo.setOnClickListener {
-            findNavController().navigate(R.id.nav_meus_veiculos_to_register_veiculos)
+            findNavController().navigate(R.id.nav_register_veiculos_to_meus_veiculos)
         }
     }
 

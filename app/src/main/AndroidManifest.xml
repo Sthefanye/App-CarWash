@@ -13,8 +13,8 @@
             android:name=".ui.activities.MainActivity"
             android:exported="true"
             android:theme="@style/Theme.CarWash"
-            android:allowEmbedded="false"
-            android:alwaysRetainTaskState="false"
+            android:allowEmbedded="true"
+            android:alwaysRetainTaskState="true"
             android:autoRemoveFromRecents="true"
             android:clearTaskOnLaunch="true">
             <intent-filter>

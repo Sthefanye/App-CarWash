@@ -50,7 +50,7 @@ class Util {
 
 
 
-        fun exibirToast(context: Context,mensagem: String){
+        fun exibirToast(context: Context, mensagem: String){
 
             Toast.makeText(context, mensagem , Toast.LENGTH_LONG).show()
         }

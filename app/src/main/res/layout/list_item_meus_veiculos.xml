@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="@dimen/body_1">
+
+        <ImageView
+            android:id="@+id/ivIconCarStatusService"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/body_4"
+            android:src="@drawable/ic_car" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvModelCarStatusService"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:fontFamily="@font/raleway_bold"
+                android:text="Modelo: Sedan"
+                android:textColor="@color/blue_light" />
+
+            <TextView
+                android:id="@+id/tvCorCarStatusService"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:fontFamily="@font/raleway_bold"
+                android:text="Cor: Prata"
+                android:textColor="@color/blue_light" />
+
+            <TextView
+                android:id="@+id/tvPlacaCarStatusService"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:fontFamily="@font/raleway_bold"
+                android:text="Placa: JXO-2668"
+                android:textColor="@color/blue_light" />
+
+            <TextView
+                android:id="@+id/tvAnoCarStatusService"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:fontFamily="@font/raleway_bold"
+                android:text="Ano: 2009"
+                android:textColor="@color/blue_light" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+</layout>

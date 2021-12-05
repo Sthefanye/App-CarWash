@@ -52,6 +52,7 @@ class HomeFragment : Fragment() {
         navigateHomeToMeusVeiculos()
         navigateHomeToStatus()
         navigateHomeToAgendarLimpeza()
+        navigateLogout()
 
         return homeBinding.root
     }
@@ -77,6 +78,11 @@ class HomeFragment : Fragment() {
     private fun navigateHomeToConfiguracoes() {
         homeBinding.icConfiguracoes.setOnClickListener {
             findNavController().navigate(R.id.nav_frag_home_to_edit_account)
+        }
+    }
+    private fun navigateLogout() {
+        homeBinding.btnSair.setOnClickListener {
+            findNavController().navigate(R.id.nav_frag_home_to_login)
         }
     }
 
