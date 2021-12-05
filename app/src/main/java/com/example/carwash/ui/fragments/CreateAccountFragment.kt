@@ -14,20 +14,26 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.fragment_create_account.*
 import com.example.carwash.data.model.Person
+import com.example.carwash.data.model.Vehicle
 import com.example.carwash.model.CreateAccountData
 import com.example.carwash.util.Util
+import com.google.android.gms.tasks.Task
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.ktx.getValue
 import kotlinx.android.synthetic.main.fragment_create_account.etEmailChangeAccount
 import kotlinx.android.synthetic.main.fragment_create_account.etPasswordChangeAccount
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.tasks.await
+import kotlinx.coroutines.withContext
 
 class CreateAccountFragment : Fragment() {
     val firebaseDatabase = FirebaseDatabase.getInstance()
     val databaseReference = firebaseDatabase.reference
-
     val usuario = FirebaseAuth.getInstance()
-    private var auth: FirebaseAuth? = null
-
-
     private lateinit var createAccountBinding: FragmentCreateAccountBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -46,16 +52,18 @@ class CreateAccountFragment : Fragment() {
 
     private fun navigateToLogin(){
         createAccountBinding.tvLoginCreateAccount.setOnClickListener {
-            findNavController().navigate(R.id.nav_frag_cadastrar_login_to_home)
+            //findNavController().navigate(R.id.nav_frag_cadastrar_login_to_home)
+
         }
     }
 
 
     private fun btnCreateAccount(){
         createAccountBinding.btnCreateChangeAccount.setOnClickListener{
-            val data = CreateAccountData()
+
+            findCarsDatabase("GSNMUElcObMyko3mdTaNCCYmieB3")
+
             val dadosUsuario = Person(
-                userId = System.currentTimeMillis().toInt(),
                 userEmail = etEmailChangeAccount.text.toString(),
                 userName = etNameChangeAccount.text.toString(),
                 userNumber = etTelephoneChangeAccount.text.toString(),
@@ -67,18 +75,6 @@ class CreateAccountFragment : Fragment() {
                 !dadosUsuario.userName.trim().equals("")) {
 
 
-                    databaseReference.child("Users").child(dadosUsuario.userId.toString())
-                        .child("email").setValue(dadosUsuario.userEmail)
-
-                    databaseReference.child("Users").child(dadosUsuario.userId.toString())
-                        .child("name").setValue(dadosUsuario.userName)
-
-                    databaseReference.child("Users").child(dadosUsuario.userId.toString())
-                        .child("telephone").setValue(dadosUsuario.userNumber)
-
-                    databaseReference.child("Users").child(dadosUsuario.userId.toString())
-                        .child("password").setValue(dadosUsuario.userPassword)
-
                     usuario.createUserWithEmailAndPassword(dadosUsuario.userEmail,
                         dadosUsuario.userPassword).addOnCompleteListener(requireActivity())
                     { task -> if (task.isSuccessful) {
@@ -87,8 +83,11 @@ class CreateAccountFragment : Fragment() {
                                 Util.exibirToast(requireContext(),"Conta criada " +
                                         "com sucesso")
 
-                                Log.d("logcat", "createUserWithEmail:success")
-                                val user = auth?.currentUser
+                                dadosUsuario.userId = task.result?.user?.uid.toString()
+                                createAccountDatabase(dadosUsuario)
+                                createCarsDatabase(dadosUsuario.userId, Vehicle(placa = "JWO5587", cor = "Azul", modelo = "Palio", ano = "1997"))
+                                createCarsDatabase(dadosUsuario.userId, Vehicle(placa = "JX82030", cor = "Vermelho", modelo = "Punto", ano = "2020"))
+
                             } else {
                                 val erro = task.exception.toString()
                                 errorsFirebase(erro)
@@ -116,5 +115,48 @@ class CreateAccountFragment : Fragment() {
         }else{
             Util.exibirToast(requireContext(), "Ocorreu um erro inesperado")
         }
+    }
+
+    private fun createAccountDatabase(dadosUsuario: Person){
+        val ref = databaseReference.child("Users").child(dadosUsuario.userId)
+
+        ref.child("email").setValue(dadosUsuario.userEmail)
+        ref.child("name").setValue(dadosUsuario.userName)
+        ref.child("telephone").setValue(dadosUsuario.userNumber)
+        ref.child("password").setValue(dadosUsuario.userPassword)
+        ref.child("id").setValue(dadosUsuario.userId)
+    }
+
+
+    private fun createCarsDatabase(uid:String, vehicle: Vehicle ){
+        val ref  = databaseReference.child("Users").child(uid).child("vehicles").child(vehicle.placa)
+
+        ref.child("modelo").setValue(vehicle.modelo)
+        ref.child("cor").setValue(vehicle.cor)
+        ref.child("placa").setValue(vehicle.placa)
+        ref.child("ano").setValue(vehicle.ano)
+
+    }
+
+    private fun findCarsDatabase(uid: String){
+        databaseReference.child("Users").child(uid).get().addOnCompleteListener { task ->
+
+            if(task.isSuccessful){
+                val carList = task.result?.child("vehicles")?.children
+
+                carList?.forEach {
+                    Log.d("Cars", it.value.toString())
+                }
+                Log.d("Cars", carList.toString())
+            }else{
+                Log.d("Cars", "Error")
+
+            }
+
+
+
+
+        }
+
     }
 }

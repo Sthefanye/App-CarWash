@@ -12,11 +12,17 @@ import com.example.carwash.data.model.Person
 import com.example.carwash.databinding.FragmentHomeBinding
 import com.example.carwash.util.Util
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 
 class HomeFragment : Fragment() {
     private lateinit var homeBinding: FragmentHomeBinding
     private val user = Firebase.auth.currentUser
+    private val databaseRef = Firebase.database.reference
+
+
+
+    private val name3 = user?.displayName
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,9 +30,12 @@ class HomeFragment : Fragment() {
         Util.exibirToast(requireContext(),"oi ${dadosUsuario.userEmail}")
         Util.exibirToast(requireContext(),"oi $name3")
         Util.exibirToast(requireContext(),"oi ${dadosUsuario.userNumber}")
+        Util.exibirToast(requireContext(),"oi ${dadosUsuario.userId}")
     }
-    private val name3 = user?.displayName
+
+
     val dadosUsuario = Person(
+        userId = System.currentTimeMillis().toString(),
         userEmail = user?.email.toString(),
         userName = user?.displayName.toString(),
         userNumber = user?.phoneNumber.toString()

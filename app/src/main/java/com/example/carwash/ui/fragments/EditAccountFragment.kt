@@ -18,7 +18,9 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.auth.ktx.userProfileChangeRequest
+import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.fragment_create_account.*
 
@@ -28,12 +30,20 @@ class EditAccountFragment : Fragment(){
 
     val usuario = FirebaseAuth.getInstance()
     private var auth: FirebaseAuth? = null
+    private lateinit var database: DatabaseReference
     private val user = Firebase.auth.currentUser
     private lateinit var editAccountBinding: FragmentEditAccountBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
+    val dadosUsuario = Person(
+        userId = System.currentTimeMillis().toString(),
+        userEmail = etEmailChangeAccount.text.toString(),
+        userName = etNameChangeAccount.text.toString(),
+        userNumber = etTelephoneChangeAccount.text.toString(),
+        userPassword = etPasswordChangeAccount.text.toString()
+    )
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -42,7 +52,6 @@ class EditAccountFragment : Fragment(){
     ): View {
         editAccountBinding =  DataBindingUtil.inflate(inflater, R.layout.fragment_edit_account, container, false)
         navigate()
-        editAccount()
         return editAccountBinding.root
     }
 
@@ -70,6 +79,7 @@ class EditAccountFragment : Fragment(){
     }
 
     private fun changePassword(){
+        database = Firebase.database.reference
         val user = Firebase.auth.currentUser
         val newPassword = editAccountBinding.etPasswordChangeAccount.text.toString()
 
@@ -78,7 +88,8 @@ class EditAccountFragment : Fragment(){
                 if (task.isSuccessful) {
                     Log.d("logcat", "User password updated.")
                     Util.exibirToast(requireContext(),"User password updated.")
-                    //databaseReference.child("Users").child(dadosUsuario.userId).child("password").setValue(dadosUsuario.userPassword)
+                    databaseReference.child("Users").child(dadosUsuario.userId.toString())
+                        .child("password").setValue(dadosUsuario.userPassword)
                 }else{
                     Log.d("logcat", "error")
                     Util.exibirToast(requireContext(),"some error is happen")
@@ -90,10 +101,12 @@ class EditAccountFragment : Fragment(){
         val user = Firebase.auth.currentUser
         val newEmail = editAccountBinding.etEmailChangeAccount.text.toString()
 
+
         user!!.updateEmail(newEmail)
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
-                    //databaseReference.child("Users").child(dadosUsuario.userId).child("email").setValue(dadosUsuario.userEmail)
+                    databaseReference.child("Users").child(dadosUsuario.userId.toString())
+                         .child("email").setValue(dadosUsuario.userEmail)
                     Log.d("logcat", "User email address updated.")
                     Util.exibirToast(requireContext(),"Email address updated.")
                 }else{
