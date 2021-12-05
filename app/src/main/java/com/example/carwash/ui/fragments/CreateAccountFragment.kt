@@ -43,7 +43,8 @@ class CreateAccountFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        createAccountBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_create_account, container, false)
+        createAccountBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_create_account,
+            container, false)
         btnCreateAccount()
         navigateToLogin()
         return createAccountBinding.root
@@ -60,6 +61,7 @@ class CreateAccountFragment : Fragment() {
         createAccountBinding.btnCreateChangeAccount.setOnClickListener{
             val data = CreateAccountData()
             val dadosUsuario = Person(
+                userId = etEmailChangeAccount.id.toString(),
                 userEmail = etEmailChangeAccount.text.toString(),
                 userName = etNameChangeAccount.text.toString(),
                 userNumber = etTelephoneChangeAccount.text.toString(),
@@ -70,19 +72,26 @@ class CreateAccountFragment : Fragment() {
                 !dadosUsuario.userNumber.trim().equals("") &&
                 !dadosUsuario.userName.trim().equals("")) {
 
-                val userid = etEmailChangeAccount.id.toString()
 
-                    databaseReference.child("Users").child(userid).child("email").setValue(dadosUsuario.userEmail)
-                    databaseReference.child("Users").child(userid).child("name").setValue(dadosUsuario.userName)
-                    databaseReference.child("Users").child(userid).child("telephone").setValue(dadosUsuario.userNumber)
-                    databaseReference.child("Users").child(userid).child("password").setValue(dadosUsuario.userPassword)
+                    databaseReference.child("Users").child(dadosUsuario.userId)
+                        .child("email").setValue(dadosUsuario.userEmail)
 
-                    usuario.createUserWithEmailAndPassword(dadosUsuario.userEmail, dadosUsuario.userPassword)
-                        .addOnCompleteListener(requireActivity()) { task ->
-                            if (task.isSuccessful) {
-                                // Sign in success, update UI with the signed-in user's information
+                    databaseReference.child("Users").child(dadosUsuario.userId)
+                        .child("name").setValue(dadosUsuario.userName)
+
+                    databaseReference.child("Users").child(dadosUsuario.userId)
+                        .child("telephone").setValue(dadosUsuario.userNumber)
+
+                    databaseReference.child("Users").child(dadosUsuario.userId)
+                        .child("password").setValue(dadosUsuario.userPassword)
+
+                    usuario.createUserWithEmailAndPassword(dadosUsuario.userEmail,
+                        dadosUsuario.userPassword).addOnCompleteListener(requireActivity())
+                    { task -> if (task.isSuccessful) {
+
                                 findNavController().navigate(R.id.nav_frag_cadastrar_login_to_home)
-                                Util.exibirToast(requireContext(),"Conta criada com sucesso")
+                                Util.exibirToast(requireContext(),"Conta criada " +
+                                        "com sucesso")
 
                                 Log.d("logcat", "createUserWithEmail:success")
                                 val user = auth?.currentUser
@@ -103,8 +112,10 @@ class CreateAccountFragment : Fragment() {
         if(erro.contains("The email address is badly formatted." )){
             Util.exibirToast(requireContext(),"Inserir e-mail válido")
         }else if(erro.contains("The given password is invalid")){
-            Util.exibirToast(requireContext(),"A senha deve conter no mínimo 6 caracteces")
-        }else if(erro.contains("The password is invalid or the user does not have a password.")) {
+            Util.exibirToast(requireContext(),"A senha deve conter no mínimo" +
+                    " 6 caracteces")
+        }else if(erro.contains("The password is invalid or the user does not have" +
+                    " a password.")) {
             Util.exibirToast(requireContext(), "Este e-mail não é válido")
         }else if(erro.contains("The email address is already in use by another account.")) {
             Util.exibirToast(requireContext(), "Email já utilizado por outra pessoa")
