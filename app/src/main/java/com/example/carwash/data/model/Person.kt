@@ -1,7 +1,7 @@
 package com.example.carwash.data.model
 
 open class Person(
-    var userId: String = "",
+    var userId: Int = System.currentTimeMillis().toInt(),
     var userName: String = "",
     var userEmail: String = "",
     var userPassword: String = "",

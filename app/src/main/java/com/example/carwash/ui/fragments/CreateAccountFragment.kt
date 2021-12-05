@@ -10,20 +10,14 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.carwash.R
 import com.example.carwash.databinding.FragmentCreateAccountBinding
-import com.example.carwash.ui.fragments.LoginFragment.Companion.TAG
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.fragment_create_account.*
 import com.example.carwash.data.model.Person
 import com.example.carwash.model.CreateAccountData
-import com.example.carwash.util.DialogProgress
 import com.example.carwash.util.Util
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.fragment_create_account.etEmailChangeAccount
 import kotlinx.android.synthetic.main.fragment_create_account.etPasswordChangeAccount
-import kotlinx.android.synthetic.main.fragment_login.*
 
 class CreateAccountFragment : Fragment() {
     val firebaseDatabase = FirebaseDatabase.getInstance()
@@ -61,7 +55,7 @@ class CreateAccountFragment : Fragment() {
         createAccountBinding.btnCreateChangeAccount.setOnClickListener{
             val data = CreateAccountData()
             val dadosUsuario = Person(
-                userId = etEmailChangeAccount.id.toString(),
+                userId = System.currentTimeMillis().toInt(),
                 userEmail = etEmailChangeAccount.text.toString(),
                 userName = etNameChangeAccount.text.toString(),
                 userNumber = etTelephoneChangeAccount.text.toString(),
@@ -73,16 +67,16 @@ class CreateAccountFragment : Fragment() {
                 !dadosUsuario.userName.trim().equals("")) {
 
 
-                    databaseReference.child("Users").child(dadosUsuario.userId)
+                    databaseReference.child("Users").child(dadosUsuario.userId.toString())
                         .child("email").setValue(dadosUsuario.userEmail)
 
-                    databaseReference.child("Users").child(dadosUsuario.userId)
+                    databaseReference.child("Users").child(dadosUsuario.userId.toString())
                         .child("name").setValue(dadosUsuario.userName)
 
-                    databaseReference.child("Users").child(dadosUsuario.userId)
+                    databaseReference.child("Users").child(dadosUsuario.userId.toString())
                         .child("telephone").setValue(dadosUsuario.userNumber)
 
-                    databaseReference.child("Users").child(dadosUsuario.userId)
+                    databaseReference.child("Users").child(dadosUsuario.userId.toString())
                         .child("password").setValue(dadosUsuario.userPassword)
 
                     usuario.createUserWithEmailAndPassword(dadosUsuario.userEmail,
