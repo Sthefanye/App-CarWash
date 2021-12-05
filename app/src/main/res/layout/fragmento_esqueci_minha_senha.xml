@@ -5,9 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-        <variable
-            name="login"
-            type="com.example.carwash.data.observables.LoginFragmentObservables" />
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -25,6 +23,7 @@
 
 
         <TextView
+            android:id="@+id/tvTitleEsqueciMinhaSenha"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/editar_conta"
@@ -37,7 +36,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageButton
-            android:id="@+id/btn_voltar"
+            android:id="@+id/btn_voltar_passowrd"
             android:layout_width="@dimen/btn_arrow_layout_width"
             android:layout_height="@dimen/btn_arrow_layout_height"
             android:layout_marginLeft="@dimen/elevation"
@@ -47,72 +46,49 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageView
-            android:id="@+id/ivLogo"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:src="@drawable/ic_girl_avatar"
-            app:layout_constraintEnd_toEndOf="@+id/ivToolbar"
-            app:layout_constraintStart_toStartOf="@+id/ivToolbar"
-            app:layout_constraintTop_toBottomOf="@+id/ivToolbar" />
-
 
         <EditText
-            android:id="@+id/etNameChangeAccount"
+            android:id="@+id/etPasswordAtual"
             android:layout_width="@dimen/altura_edit_text"
             android:layout_height="@dimen/largura_edit_text"
             android:backgroundTint="@color/blue_light"
             android:hint="@string/nome"
             android:fontFamily="@font/raleway_medium"
-            android:drawableLeft="@drawable/ic_name"
+            android:drawableLeft="@drawable/ic_password"
             android:drawablePadding="@dimen/padding_drawable_icons_default"
-            android:layout_marginTop="@dimen/margin_top_default_create_account"
-            app:layout_constraintEnd_toEndOf="@+id/ivLogo"
-            app:layout_constraintStart_toStartOf="@+id/ivLogo"
-            app:layout_constraintTop_toBottomOf="@+id/ivLogo"/>
+            android:layout_marginTop="@dimen/margin_top_grid_default"
+            app:layout_constraintEnd_toEndOf="@+id/tvTitleEsqueciMinhaSenha"
+            app:layout_constraintStart_toStartOf="@+id/tvTitleEsqueciMinhaSenha"
+            app:layout_constraintTop_toBottomOf="@+id/tvTitleEsqueciMinhaSenha"/>
 
         <EditText
-            android:id="@+id/etEmailChangeAccount"
+            android:id="@+id/etNewPassword"
             android:layout_width="@dimen/altura_edit_text"
             android:layout_height="@dimen/largura_edit_text"
             android:backgroundTint="@color/blue_light"
             android:hint="@string/email"
             android:fontFamily="@font/raleway_medium"
-            android:drawableLeft="@drawable/ic_email"
+            android:drawableLeft="@drawable/ic_password"
             android:drawablePadding="@dimen/padding_drawable_icons_default"
             android:layout_marginTop="@dimen/margin_top"
-            app:layout_constraintEnd_toEndOf="@+id/etNameChangeAccount"
-            app:layout_constraintStart_toStartOf="@+id/etNameChangeAccount"
-            app:layout_constraintTop_toBottomOf="@+id/etNameChangeAccount"/>
+            app:layout_constraintEnd_toEndOf="@+id/etPasswordAtual"
+            app:layout_constraintStart_toStartOf="@+id/etPasswordAtual"
+            app:layout_constraintTop_toBottomOf="@+id/etPasswordAtual"/>
 
         <EditText
-            android:id="@+id/etPasswordChangeAccount"
-            android:layout_width="343dp"
-            android:layout_height="41dp"
-            android:layout_marginTop="@dimen/margin_top"
+            android:id="@+id/etConfirmPassword"
+            android:layout_width="@dimen/altura_edit_text"
+            android:layout_height="@dimen/largura_edit_text"
             android:backgroundTint="@color/blue_light"
+            android:layout_marginTop="@dimen/margin_top"
             android:drawableLeft="@drawable/ic_password"
             android:drawablePadding="@dimen/padding_drawable_icons_default"
             android:fontFamily="@font/raleway_medium"
             android:hint="@string/senha"
             android:inputType="textPassword"
-            app:layout_constraintEnd_toEndOf="@+id/etEmailChangeAccount"
-            app:layout_constraintStart_toStartOf="@+id/etEmailChangeAccount"
-            app:layout_constraintTop_toBottomOf="@+id/etEmailChangeAccount" />
-
-        <EditText
-            android:id="@+id/etTelephoneChangeAccount"
-            android:layout_width="@dimen/altura_edit_text"
-            android:layout_height="@dimen/largura_edit_text"
-            android:backgroundTint="@color/blue_light"
-            android:hint="@string/telefone"
-            android:fontFamily="@font/raleway_medium"
-            android:drawableLeft="@drawable/ic_telephone"
-            android:drawablePadding="@dimen/padding_drawable_icons_default"
-            android:layout_marginTop="@dimen/margin_top"
-            app:layout_constraintEnd_toEndOf="@+id/etPasswordChangeAccount"
-            app:layout_constraintStart_toStartOf="@+id/etPasswordChangeAccount"
-            app:layout_constraintTop_toBottomOf="@+id/etPasswordChangeAccount" />
+            app:layout_constraintEnd_toEndOf="@+id/etNewPassword"
+            app:layout_constraintStart_toStartOf="@+id/etNewPassword"
+            app:layout_constraintTop_toBottomOf="@+id/etNewPassword" />
 
 
         <Button
@@ -125,9 +101,9 @@
             android:textSize="@dimen/body_4"
             android:fontFamily="@font/raleway_medium"
             android:elevation="@dimen/elevation"
-            app:layout_constraintEnd_toEndOf="@+id/etTelephoneChangeAccount"
-            app:layout_constraintStart_toStartOf="@+id/etTelephoneChangeAccount"
-            app:layout_constraintTop_toBottomOf="@+id/etTelephoneChangeAccount" />
+            app:layout_constraintEnd_toEndOf="@+id/etConfirmPassword"
+            app:layout_constraintStart_toStartOf="@+id/etConfirmPassword"
+            app:layout_constraintTop_toBottomOf="@+id/etConfirmPassword"  />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -9,17 +9,17 @@ import com.example.carwash.R
 
 class DialogProgress : DialogFragment() {
 
-
     init {
-
     }
 
-    override fun onCreateView( inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-         super.onCreateView(inflater, container, savedInstanceState)
-
-        val view = inflater.inflate(R.layout.dialog_progress,container)
-
-        retainInstance.to(true)
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        super.onCreateView(inflater, container, savedInstanceState)
+        val view = inflater.inflate(R.layout.dialog_progress, container)
+        retainInstance to true
 
         return view
     }
@@ -28,7 +28,7 @@ class DialogProgress : DialogFragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        isCancelable.to(true)
+        isCancelable to true
     }
 
 

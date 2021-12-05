@@ -1,4 +1,4 @@
-package com.example.carwash.model
+package com.example.carwash.data.observables
 
 class VehicleData {
     var model : String = ""

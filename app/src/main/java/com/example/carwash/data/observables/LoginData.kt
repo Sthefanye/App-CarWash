@@ -1,4 +1,4 @@
-package com.example.carwash.model
+package com.example.carwash.data.observables
 
 import androidx.databinding.BaseObservable
 import androidx.databinding.Bindable

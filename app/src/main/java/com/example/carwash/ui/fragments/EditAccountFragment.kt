@@ -22,8 +22,8 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.fragment_create_account.*
 
-class EditAccountFragment : Fragment(){
-    val firebaseDatabase = FirebaseDatabase.getInstance()
+class EditAccountFragment : Fragment() {
+    private val firebaseDatabase = FirebaseDatabase.getInstance()
     val databaseReference = firebaseDatabase.reference
 
     val usuario = FirebaseAuth.getInstance()
@@ -40,53 +40,51 @@ class EditAccountFragment : Fragment(){
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        editAccountBinding =  DataBindingUtil.inflate(inflater, R.layout.fragment_edit_account, container, false)
+        editAccountBinding =
+            DataBindingUtil.inflate(inflater, R.layout.fragment_edit_account, container, false)
         navigate()
         editAccount()
         return editAccountBinding.root
     }
 
-    fun navigate(){
-        editAccountBinding.btnSaveAccount.setOnClickListener{
-            findNavController().navigate(R.id.nav_edit_account_to_home)
-        }
-        editAccountBinding.btnVoltar.setOnClickListener{
+    fun navigate() {
+        editAccountBinding.btnVoltar.setOnClickListener {
             findNavController().navigate(R.id.nav_edit_account_to_home)
         }
 
     }
 
-    private fun editAccount(){
+    private fun editAccount() {
         Util.exibirToast(requireContext(), user.toString())
-        editAccountBinding.btnSaveAccount.setOnClickListener{
+        editAccountBinding.btnSaveAccount.setOnClickListener {
             Util.exibirToast(requireContext(), user.toString())
-            if(!editAccountBinding.etPasswordChangeAccount.equals("")){
+            if (!editAccountBinding.etPasswordChangeAccount.equals("")) {
                 changePassword()
             }
-            if(!editAccountBinding.etEmailChangeAccount.equals("")){
+            if (!editAccountBinding.etEmailChangeAccount.equals("")) {
                 changeEmail()
             }
         }
     }
 
-    private fun changePassword(){
+    private fun changePassword() {
         val user = Firebase.auth.currentUser
         val newPassword = editAccountBinding.etPasswordChangeAccount.text.toString()
 
         user!!.updatePassword(newPassword)
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
-                    Log.d("logcat", "User password updated.")
-                    Util.exibirToast(requireContext(),"User password updated.")
+                    Log.d(TAG, "User password updated.")
+                    Util.exibirToast(requireContext(), "User password updated.")
                     //databaseReference.child("Users").child(dadosUsuario.userId).child("password").setValue(dadosUsuario.userPassword)
-                }else{
-                    Log.d("logcat", "error")
-                    Util.exibirToast(requireContext(),"some error is happen")
+                } else {
+                    Log.d(TAG, "error")
+                    Util.exibirToast(requireContext(), "some error is happen")
                 }
             }
     }
 
-    private fun changeEmail(){
+    private fun changeEmail() {
         val user = Firebase.auth.currentUser
         val newEmail = editAccountBinding.etEmailChangeAccount.text.toString()
 
@@ -94,19 +92,22 @@ class EditAccountFragment : Fragment(){
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     //databaseReference.child("Users").child(dadosUsuario.userId).child("email").setValue(dadosUsuario.userEmail)
-                    Log.d("logcat", "User email address updated.")
-                    Util.exibirToast(requireContext(),"Email address updated.")
-                }else{
-                    Log.d("logcat", "error")
-                    Util.exibirToast(requireContext(),"some error is happen")
+                    Log.d(TAG, "User email address updated.")
+                    Util.exibirToast(requireContext(), "Email address updated.")
+                } else {
+                    Log.d(TAG, "error")
+                    Util.exibirToast(requireContext(), "some error is happen")
                 }
             }
     }
 
-    private fun changeTelephone(){
+    private fun changeTelephone() {
         val user = Firebase.auth.currentUser
         val newTelephone = editAccountBinding.etTelephoneChangeAccount.text.toString()
     }
 
+    companion object{
+        private const val TAG = "editAccount"
+    }
 }
 

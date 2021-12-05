@@ -56,11 +56,12 @@
             android:id="@+id/etPlacaVeiculo"
             android:layout_width="@dimen/altura_edit_text"
             android:layout_height="@dimen/largura_edit_text"
+            android:layout_marginTop="@dimen/margin_top"
             android:backgroundTint="@color/blue_light"
             android:fontFamily="@font/raleway_medium"
-            android:text="@{registerVehicle.placa}"
             android:hint="@string/placa_veiculo"
-            android:layout_marginTop="@dimen/margin_top"
+            android:text="@{registerVehicle.placa}"
+            app:layout_constraintEnd_toEndOf="@+id/etModeloVeiculo"
             app:layout_constraintStart_toStartOf="@+id/etModeloVeiculo"
             app:layout_constraintTop_toBottomOf="@+id/etModeloVeiculo" />
 
@@ -68,11 +69,12 @@
             android:id="@+id/etAnoVeiculo"
             android:layout_width="@dimen/altura_edit_text"
             android:layout_height="@dimen/largura_edit_text"
+            android:layout_marginTop="@dimen/margin_top"
             android:backgroundTint="@color/blue_light"
             android:fontFamily="@font/raleway_medium"
-            android:text="@{registerVehicle.ano}"
             android:hint="@string/ano_veiculo"
-            android:layout_marginTop="@dimen/margin_top"
+            android:text="@{registerVehicle.ano}"
+            app:layout_constraintEnd_toEndOf="@+id/etPlacaVeiculo"
             app:layout_constraintStart_toStartOf="@+id/etPlacaVeiculo"
             app:layout_constraintTop_toBottomOf="@+id/etPlacaVeiculo" />
 
@@ -83,8 +85,9 @@
             android:layout_marginTop="@dimen/margin_top"
             android:backgroundTint="@color/blue_light"
             android:fontFamily="@font/raleway_medium"
-            android:text="@{registerVehicle.cor}"
             android:hint="@string/cor_veiculo"
+            android:text="@{registerVehicle.cor}"
+            app:layout_constraintEnd_toEndOf="@+id/etAnoVeiculo"
             app:layout_constraintStart_toStartOf="@+id/etAnoVeiculo"
             app:layout_constraintTop_toBottomOf="@+id/etAnoVeiculo" />
 

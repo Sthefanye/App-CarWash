@@ -12,22 +12,18 @@ import com.example.carwash.R
 import com.example.carwash.databinding.FragmentCreateAccountBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
-import kotlinx.android.synthetic.main.fragment_create_account.*
 import com.example.carwash.data.model.Person
 import com.example.carwash.model.CreateAccountData
 import com.example.carwash.util.Util
-import kotlinx.android.synthetic.main.fragment_create_account.etEmailChangeAccount
-import kotlinx.android.synthetic.main.fragment_create_account.etPasswordChangeAccount
 
 class CreateAccountFragment : Fragment() {
-    val firebaseDatabase = FirebaseDatabase.getInstance()
-    val databaseReference = firebaseDatabase.reference
-
-    val usuario = FirebaseAuth.getInstance()
+    private lateinit var createAccountBinding: FragmentCreateAccountBinding
+    private val firebaseDatabase = FirebaseDatabase.getInstance()
+    private val databaseReference = firebaseDatabase.reference
+    private val user = FirebaseAuth.getInstance()
     private var auth: FirebaseAuth? = null
 
 
-    private lateinit var createAccountBinding: FragmentCreateAccountBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -37,84 +33,105 @@ class CreateAccountFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        createAccountBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_create_account,
-            container, false)
+        createAccountBinding = DataBindingUtil.inflate(
+            inflater, R.layout.fragment_create_account,
+            container, false
+        )
         btnCreateAccount()
         navigateToLogin()
         return createAccountBinding.root
     }
 
-    private fun navigateToLogin(){
+    private fun navigateToLogin() {
         createAccountBinding.tvLoginCreateAccount.setOnClickListener {
             findNavController().navigate(R.id.nav_frag_cadastrar_login_to_home)
         }
     }
 
 
-    private fun btnCreateAccount(){
-        createAccountBinding.btnCreateChangeAccount.setOnClickListener{
+    private fun btnCreateAccount() {
+        createAccountBinding.btnCreateChangeAccount.setOnClickListener {
             val data = CreateAccountData()
-            val dadosUsuario = Person(
+            val dataUser = Person(
                 userId = System.currentTimeMillis().toInt(),
-                userEmail = etEmailChangeAccount.text.toString(),
-                userName = etNameChangeAccount.text.toString(),
-                userNumber = etTelephoneChangeAccount.text.toString(),
-                userPassword = etPasswordChangeAccount.text.toString()
+                userEmail = createAccountBinding.etEmailChangeAccount.text.toString(),
+                userName = createAccountBinding.etNameChangeAccount.text.toString(),
+                userNumber = createAccountBinding.etTelephoneChangeAccount.text.toString(),
+                userPassword = createAccountBinding.etPasswordChangeAccount.text.toString()
             )
-            if (!dadosUsuario.userEmail.trim().equals("") &&
-                !dadosUsuario.userPassword.trim().equals("") &&
-                !dadosUsuario.userNumber.trim().equals("") &&
-                !dadosUsuario.userName.trim().equals("")) {
+            if (dataUser.userEmail.trim() != "" &&
+                dataUser.userPassword.trim() != "" &&
+                dataUser.userNumber.trim() != "" &&
+                dataUser.userName.trim() != ""
+            ) {
 
+                databaseReference.child("Users").child(dataUser.userId.toString())
+                    .child("email").setValue(dataUser.userEmail)
 
-                    databaseReference.child("Users").child(dadosUsuario.userId.toString())
-                        .child("email").setValue(dadosUsuario.userEmail)
+                databaseReference.child("Users").child(dataUser.userId.toString())
+                    .child("name").setValue(dataUser.userName)
 
-                    databaseReference.child("Users").child(dadosUsuario.userId.toString())
-                        .child("name").setValue(dadosUsuario.userName)
+                databaseReference.child("Users").child(dataUser.userId.toString())
+                    .child("telephone").setValue(dataUser.userNumber)
 
-                    databaseReference.child("Users").child(dadosUsuario.userId.toString())
-                        .child("telephone").setValue(dadosUsuario.userNumber)
+                databaseReference.child("Users").child(dataUser.userId.toString())
+                    .child("password").setValue(dataUser.userPassword)
 
-                    databaseReference.child("Users").child(dadosUsuario.userId.toString())
-                        .child("password").setValue(dadosUsuario.userPassword)
+                user.createUserWithEmailAndPassword(
+                    dataUser.userEmail,
+                    dataUser.userPassword
+                ).addOnCompleteListener(requireActivity())
+                { task ->
+                    if (task.isSuccessful) {
 
-                    usuario.createUserWithEmailAndPassword(dadosUsuario.userEmail,
-                        dadosUsuario.userPassword).addOnCompleteListener(requireActivity())
-                    { task -> if (task.isSuccessful) {
+                        findNavController().navigate(R.id.nav_frag_cadastrar_login_to_home)
+                        Util.exibirToast(
+                            requireContext(), "Conta criada " +
+                                    "com sucesso"
+                        )
 
-                                findNavController().navigate(R.id.nav_frag_cadastrar_login_to_home)
-                                Util.exibirToast(requireContext(),"Conta criada " +
-                                        "com sucesso")
-
-                                Log.d("logcat", "createUserWithEmail:success")
-                                val user = auth?.currentUser
-                            } else {
-                                val erro = task.exception.toString()
-                                errorsFirebase(erro)
-                                Log.d("logcat",task.exception.toString())
-                            }
-                        }
-            }else{
-                Util.exibirToast(requireContext(),"Preencher campo vazio")
+                        Log.d("logcat", "createUserWithEmail:success")
+                        val user = auth?.currentUser
+                    } else {
+                        val error = task.exception.toString()
+                        errorsFirebase(error)
+                        Log.d(TAG, task.exception.toString())
+                    }
+                }
+            } else {
+                Util.exibirToast(requireContext(), "Preencher campo vazio")
             }
         }
     }
 
-    private fun errorsFirebase(erro:String){
+    private fun errorsFirebase(error: String) {
 
-        if(erro.contains("The email address is badly formatted." )){
-            Util.exibirToast(requireContext(),"Inserir e-mail válido")
-        }else if(erro.contains("The given password is invalid")){
-            Util.exibirToast(requireContext(),"A senha deve conter no mínimo" +
-                    " 6 caracteces")
-        }else if(erro.contains("The password is invalid or the user does not have" +
-                    " a password.")) {
-            Util.exibirToast(requireContext(), "Este e-mail não é válido")
-        }else if(erro.contains("The email address is already in use by another account.")) {
-            Util.exibirToast(requireContext(), "Email já utilizado por outra pessoa")
-        }else{
-            Util.exibirToast(requireContext(), "Ocorreu um erro inesperado")
+        when {
+            error.contains("The email address is badly formatted.") -> {
+                Util.exibirToast(requireContext(), "Inserir e-mail válido")
+            }
+            error.contains("The given password is invalid") -> {
+                Util.exibirToast(
+                    requireContext(), "A senha deve conter no mínimo" +
+                            " 6 caracteces"
+                )
+            }
+            error.contains(
+                "The password is invalid or the user does not have" +
+                        " a password."
+            ) -> {
+                Util.exibirToast(requireContext(), "Este e-mail não é válido")
+            }
+            error.contains("The email address is already in use by another account.") -> {
+                Util.exibirToast(requireContext(), "Email já utilizado por outra pessoa")
+            }
+            else -> {
+                Util.exibirToast(requireContext(), "Ocorreu um erro inesperado")
+            }
         }
+    }
+
+    companion object {
+        private const val TAG = "createAccount"
     }
 }

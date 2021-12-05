@@ -29,6 +29,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
+            android:id="@+id/tvMeusVeiculos"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/meus_veiculos"
@@ -41,7 +42,15 @@
             app:layout_constraintStart_toEndOf="@+id/btnMeusVeiculosToHome"
             app:layout_constraintTop_toTopOf="@+id/btnMeusVeiculosToHome" />
 
+        <ListView
+            android:id="@+id/lvMeusVeiculos"
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            app:layout_constraintEnd_toEndOf="@+id/imageView"
+            app:layout_constraintStart_toStartOf="@+id/imageView"
+            app:layout_constraintTop_toBottomOf="@+id/imageView">
 
+        </ListView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
