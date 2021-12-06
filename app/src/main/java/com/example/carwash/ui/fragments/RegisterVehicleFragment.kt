@@ -9,10 +9,14 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.carwash.R
-import com.example.carwash.databinding.FragmentListaServicosBinding
+import com.example.carwash.data.model.Vehicle
+import com.example.carwash.data.repositories.VehicleRepository
 import com.example.carwash.databinding.FragmentRegisterVehicleBinding
+import com.example.carwash.util.Util
 
-class RegisterVehicleFragment : Fragment(){
+
+
+class RegisterVehicleFragment() : Fragment(){
     private lateinit var registerVeiculoBinding: FragmentRegisterVehicleBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,15 +36,26 @@ class RegisterVehicleFragment : Fragment(){
         return registerVeiculoBinding.root
     }
 
+
     private fun navigateToHome() {
         registerVeiculoBinding.btnVoltarHome.setOnClickListener {
-            findNavController().navigate(R.id.nav_meus_veiculos_to_home)
+            findNavController().navigate(R.id.nav_frag_register_veiculos_to_meus_veiculos)
         }
     }
 
     private fun navigateToMeusVeiculos() {
         registerVeiculoBinding.btnConfirmRegisterVeiculo.setOnClickListener {
-            findNavController().navigate(R.id.nav_register_veiculos_to_meus_veiculos)
+
+            val modelo = registerVeiculoBinding.etModeloVeiculo.text.toString()
+            val placa = registerVeiculoBinding.etPlacaVeiculo.text.toString()
+            val ano = registerVeiculoBinding.etAnoVeiculo.text.toString()
+            val cor = registerVeiculoBinding.etCorVeiculo.text.toString()
+
+            VehicleRepository.add(Vehicle(modelo, cor, placa, ano))
+
+            Util.exibirToast(requireContext(), "Veiculo adicionado com sucesso")
+
+            findNavController().navigate(R.id.nav_frag_register_veiculos_to_meus_veiculos)
         }
     }
 

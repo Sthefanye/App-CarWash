@@ -14,6 +14,8 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import com.example.carwash.data.model.Person
 import com.example.carwash.data.model.Vehicle
+import com.example.carwash.data.repositories.PersonRepository
+import com.example.carwash.data.repositories.VehicleRepository
 import com.example.carwash.model.CreateAccountData
 import com.example.carwash.util.Util
 import com.google.android.gms.tasks.Task
@@ -25,6 +27,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.tasks.await
 import kotlinx.coroutines.withContext
+
 
 
 class CreateAccountFragment : Fragment() {
@@ -88,8 +91,17 @@ class CreateAccountFragment : Fragment() {
                                     "com sucesso"
                         )
 
-                        Log.d("logcat", "createUserWithEmail:success")
-                        val user = auth?.currentUser
+
+                        task.result?.user?.let {
+
+                            dataUser.userId = it.uid
+                            PersonRepository.add(dataUser)
+
+                            //VehicleRepository.add(Vehicle("palio", "azul", "JXO5587", "1997"), it.uid)
+                            //VehicleRepository.add(Vehicle("punto", "vermelho", "JWO2030", "2012"), it.uid)
+                        }
+
+
                     } else {
                         val error = task.exception.toString()
                         errorsFirebase(error)
@@ -162,10 +174,7 @@ class CreateAccountFragment : Fragment() {
                 Log.d("Cars", carList.toString())
             } else {
                 Log.d("Cars", "Error")
-
             }
-
-
         }
     }
 

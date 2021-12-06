@@ -27,10 +27,10 @@ class HomeFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        Util.exibirToast(requireContext(),"oi ${dadosUsuario.userEmail}")
+        /*Util.exibirToast(requireContext(),"oi ${dadosUsuario.userEmail}")
         Util.exibirToast(requireContext(),"oi $name3")
         Util.exibirToast(requireContext(),"oi ${dadosUsuario.userNumber}")
-        Util.exibirToast(requireContext(),"oi ${dadosUsuario.userId}")
+        Util.exibirToast(requireContext(),"oi ${dadosUsuario.userId}")*/
     }
 
 

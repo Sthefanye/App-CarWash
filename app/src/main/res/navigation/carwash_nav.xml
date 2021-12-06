@@ -54,36 +54,36 @@
             android:id="@+id/nav_frag_home_to_meus_veiculos"
             app:destination="@id/fragMeusVeiculos"
             app:popUpTo="@id/fragMeusVeiculos"
-            app:popUpToInclusive="true"/>
+            app:popUpToInclusive="true" />
 
         <action
             android:id="@+id/nav_frag_home_to_lista_servicos"
             app:destination="@id/listaServicos"
-            app:popUpToInclusive="true"
-            app:popUpTo="@id/listaServicos"/>
+            app:popUpTo="@id/listaServicos"
+            app:popUpToInclusive="true" />
 
         <action
             android:id="@+id/nav_frag_home_to_status"
             app:destination="@id/status"
-            app:popUpToInclusive="true"
-            app:popUpTo="@id/status"/>
+            app:popUpTo="@id/status"
+            app:popUpToInclusive="true" />
 
         <action
             android:id="@+id/nav_frag_home_to_edit_account"
             app:destination="@id/editAccount"
-            app:popUpToInclusive="true"
-            app:popUpTo="@id/editAccount"/>
+            app:popUpTo="@id/editAccount"
+            app:popUpToInclusive="true" />
         <action
             android:id="@+id/nav_frag_home_to_agendarLimpeza"
             app:destination="@id/agendarLimpeza"
-            app:popUpToInclusive="true"
-            app:popUpTo="@id/agendarLimpeza"/>
+            app:popUpTo="@id/agendarLimpeza"
+            app:popUpToInclusive="true" />
 
         <action
             android:id="@+id/nav_frag_home_to_login"
             app:destination="@id/loginFragment"
-            app:popUpToInclusive="true"
-            app:popUpTo="@id/loginFragment"/>
+            app:popUpTo="@id/loginFragment"
+            app:popUpToInclusive="true" />
     </fragment>
 
     <fragment
@@ -95,8 +95,8 @@
         <action
             android:id="@+id/nav_edit_account_to_home"
             app:destination="@id/homeFragment"
-            app:popUpToInclusive="true"
-            app:popUpTo="@id/homeFragment"/>
+            app:popUpTo="@id/homeFragment"
+            app:popUpToInclusive="true" />
     </fragment>
 
     <fragment
@@ -108,14 +108,14 @@
         <action
             android:id="@+id/nav_lista_servicos_to_home"
             app:destination="@id/homeFragment"
-            app:popUpToInclusive="true"
-            app:popUpTo="@id/homeFragment"/>
+            app:popUpTo="@id/homeFragment"
+            app:popUpToInclusive="true" />
 
         <action
             android:id="@+id/nav_lista_servicos_to_agendar_limpeza"
             app:destination="@id/agendarLimpeza"
-            app:popUpToInclusive="true"
-            app:popUpTo="@id/agendarLimpeza"/>
+            app:popUpTo="@id/agendarLimpeza"
+            app:popUpToInclusive="true" />
     </fragment>
 
     <fragment
@@ -127,8 +127,8 @@
         <action
             android:id="@+id/nav_frag_agendar_limpeza_to_home"
             app:destination="@id/homeFragment"
-            app:popUpToInclusive="true"
-            app:popUpTo="@id/homeFragment"/>
+            app:popUpTo="@id/homeFragment"
+            app:popUpToInclusive="true" />
     </fragment>
 
     <fragment
@@ -140,8 +140,8 @@
         <action
             android:id="@+id/nav_status_to_home"
             app:destination="@id/homeFragment"
-            app:popUpToInclusive="true"
-            app:popUpTo="@id/homeFragment"/>
+            app:popUpTo="@id/homeFragment"
+            app:popUpToInclusive="true" />
     </fragment>
 
     <fragment
@@ -153,14 +153,20 @@
         <action
             android:id="@+id/nav_meus_veiculos_to_home"
             app:destination="@id/homeFragment"
-            app:popUpToInclusive="true"
-            app:popUpTo="@id/homeFragment" />
+            app:popUpTo="@id/homeFragment"
+            app:popUpToInclusive="true" />
 
         <action
             android:id="@+id/nav_meus_veiculos_to_register_veiculos"
             app:destination="@id/registerVeiculo"
-            app:popUpToInclusive="true"
-            app:popUpTo="@id/registerVeiculo"/>
+            app:popUpTo="@id/registerVeiculo"
+            app:popUpToInclusive="true" />
+
+        <action
+            android:id="@+id/nav_frag_meus_veiculos_to_update_dados"
+            app:destination="@id/updateDataVeiculo"
+            app:popUpTo="@id/updateDataVeiculo"
+            app:popUpToInclusive="true" />
     </fragment>
 
     <fragment
@@ -170,10 +176,23 @@
         tools:layout="@layout/fragment_register_vehicle">
 
         <action
-            android:id="@+id/nav_register_veiculos_to_meus_veiculos"
+            android:id="@+id/nav_frag_register_veiculos_to_meus_veiculos"
             app:destination="@id/fragMeusVeiculos"
-            app:popUpToInclusive="true"
-            app:popUpTo="@id/fragMeusVeiculos"/>
+            app:popUpTo="@id/fragMeusVeiculos"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/updateDataVeiculo"
+        android:name="com.example.carwash.ui.fragments.UpdateDataVehicleFragment"
+        android:label="updateDataVehicle"
+        tools:layout="@layout/fragment_update_dados_vehicle">
+
+        <action
+            android:id="@+id/nav_frag_update_veiculos_to_meus_veiculos"
+            app:destination="@id/fragMeusVeiculos"
+            app:popUpTo="@id/fragMeusVeiculos"
+            app:popUpToInclusive="true" />
     </fragment>
 
 </navigation>

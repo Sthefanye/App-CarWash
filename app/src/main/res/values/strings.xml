@@ -48,5 +48,6 @@
     <string name="senha_atual">Senha Atual</string>
     <string name="senha_nova">Senha Nova</string>
     <string name="confirme_a_senha_nova">Confirme a senha nova</string>
+    <string name="update_data_vehicle">Edite os dados do seu veículo?</string>
 
 </resources>
