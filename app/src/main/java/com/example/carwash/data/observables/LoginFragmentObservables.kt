@@ -4,7 +4,7 @@ import androidx.databinding.BaseObservable
 import androidx.databinding.Bindable
 import com.example.carwash.BR
 
-object LoginFragmentObservables : BaseObservable() {
+class LoginFragmentObservables : BaseObservable() {
 
     @Bindable
     var emailUser : String = ""

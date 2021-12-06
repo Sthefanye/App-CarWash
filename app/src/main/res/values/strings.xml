@@ -48,5 +48,19 @@
     <string name="senha_atual">Senha Atual</string>
     <string name="senha_nova">Senha Nova</string>
     <string name="confirme_a_senha_nova">Confirme a senha nova</string>
+    <string name="agende_seu_servico">Agende seu serviço</string>
+    <string name="escolha_a_data">Escolha a data:</string>
+    <string name="data">Data escolhida: _/_/_</string>
+    <string name="escolha_o_horario">Escolha o horário</string>
+    <string name="escola_seu_hor_rio">Escola seu horário:</string>
+
+    <string-array name="Horarios">
+        <item>09:00</item>
+        <item>10:00</item>
+        <item>11:00</item>
+        <item>13:00</item>
+        <item>14:00</item>
+        <item>15:00</item>
+    </string-array>
 
 </resources>

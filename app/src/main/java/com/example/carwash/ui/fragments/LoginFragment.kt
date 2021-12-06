@@ -12,9 +12,9 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.carwash.R
 import com.example.carwash.databinding.FragmentLoginBinding
-import com.example.carwash.util.DialogProgress
+import com.example.carwash.data.util.DialogProgress
 import kotlinx.android.synthetic.main.fragment_login.*
-import com.example.carwash.util.Util
+import com.example.carwash.data.util.Util
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase

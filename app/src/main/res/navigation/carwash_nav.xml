@@ -129,6 +129,12 @@
             app:destination="@id/homeFragment"
             app:popUpToInclusive="true"
             app:popUpTo="@id/homeFragment"/>
+
+        <action
+            android:id="@+id/nav_frag_agendar_limpeza_to_list_servicos"
+            app:destination="@id/listaServicos"
+            app:popUpToInclusive="true"
+            app:popUpTo="@id/listaServicos"/>
     </fragment>
 
     <fragment

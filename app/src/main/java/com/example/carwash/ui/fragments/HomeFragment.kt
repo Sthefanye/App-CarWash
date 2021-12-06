@@ -10,7 +10,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.carwash.R
 import com.example.carwash.data.model.Person
 import com.example.carwash.databinding.FragmentHomeBinding
-import com.example.carwash.util.Util
+import com.example.carwash.data.util.Util
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
@@ -65,7 +65,7 @@ class HomeFragment : Fragment() {
 
     private fun navigateHomeToAgendarLimpeza(){
         homeBinding.icAgendarLimpeza.setOnClickListener {
-            findNavController().navigate(R.id.nav_frag_home_to_agendarLimpeza)
+            findNavController().navigate(R.id.nav_frag_home_to_lista_servicos)
         }
     }
 

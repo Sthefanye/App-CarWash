@@ -4,7 +4,7 @@ import androidx.databinding.BaseObservable
 import androidx.databinding.Bindable
 import com.example.carwash.BR
 
-object RegisterVehicleObservables : BaseObservable() {
+class RegisterVehicleObservables : BaseObservable() {
 
     @Bindable
     var modelo : String = ""

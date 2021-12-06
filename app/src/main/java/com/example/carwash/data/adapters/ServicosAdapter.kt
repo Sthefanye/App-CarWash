@@ -7,10 +7,8 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.fragment.app.Fragment
 import com.example.carwash.R
-import com.example.carwash.data.ListServicos
-import org.w3c.dom.Text
+import com.example.carwash.data.model.ListServicos
 
 class ServicosAdapter(private val context: Activity, private val arrayList: ArrayList<ListServicos>) :
     ArrayAdapter<ListServicos>(context, R.layout.list_item_servico, arrayList) {

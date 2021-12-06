@@ -9,22 +9,13 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.carwash.R
-import com.example.carwash.databinding.FragmentCreateAccountBinding
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.FirebaseDatabase
 import com.example.carwash.data.model.Person
 import com.example.carwash.data.model.Vehicle
+import com.example.carwash.databinding.FragmentCreateAccountBinding
 import com.example.carwash.model.CreateAccountData
-import com.example.carwash.util.Util
-import com.google.android.gms.tasks.Task
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.ktx.getValue
-import kotlinx.android.synthetic.main.fragment_create_account.*
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.tasks.await
-import kotlinx.coroutines.withContext
+import com.example.carwash.data.util.Util
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.FirebaseDatabase
 
 
 class CreateAccountFragment : Fragment() {

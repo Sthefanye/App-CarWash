@@ -1,4 +1,4 @@
-package com.example.carwash.data
+package com.example.carwash.data.model
 
 data class ListServicos(
     var title: String,
