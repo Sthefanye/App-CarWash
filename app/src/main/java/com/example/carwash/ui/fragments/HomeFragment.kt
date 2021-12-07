@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.carwash.R
 import com.example.carwash.data.model.Person
+import com.example.carwash.data.repositories.PersonRepository
 import com.example.carwash.databinding.FragmentHomeBinding
 import com.example.carwash.util.Util
 import com.google.firebase.auth.ktx.auth
@@ -27,19 +28,7 @@ class HomeFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        /*Util.exibirToast(requireContext(),"oi ${dadosUsuario.userEmail}")
-        Util.exibirToast(requireContext(),"oi $name3")
-        Util.exibirToast(requireContext(),"oi ${dadosUsuario.userNumber}")
-        Util.exibirToast(requireContext(),"oi ${dadosUsuario.userId}")*/
     }
-
-
-    val dadosUsuario = Person(
-        userId = System.currentTimeMillis().toString(),
-        userEmail = user?.email.toString(),
-        userName = user?.displayName.toString(),
-        userNumber = user?.phoneNumber.toString()
-    )
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -53,6 +42,7 @@ class HomeFragment : Fragment() {
         navigateHomeToStatus()
         navigateHomeToAgendarLimpeza()
         navigateLogout()
+        navigateToListServicos()
 
         return homeBinding.root
     }
@@ -83,6 +73,12 @@ class HomeFragment : Fragment() {
     private fun navigateLogout() {
         homeBinding.btnSair.setOnClickListener {
             findNavController().navigate(R.id.nav_frag_home_to_login)
+        }
+    }
+
+    private fun navigateToListServicos(){
+        homeBinding.btnSair.setOnClickListener {
+            findNavController().navigate(R.id.nav_frag_home_to_lista_servicos)
         }
     }
 

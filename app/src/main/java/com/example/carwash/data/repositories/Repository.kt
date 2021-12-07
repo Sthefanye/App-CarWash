@@ -6,6 +6,7 @@ import com.google.firebase.database.FirebaseDatabase
 open class Repository {
 
     val databaseReference = FirebaseDatabase.getInstance().reference.child("Users")
+    val dataServiceReference = FirebaseDatabase.getInstance().reference.child("Services")
     val authReference = FirebaseAuth.getInstance()
 
 }
