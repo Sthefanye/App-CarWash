@@ -5,10 +5,15 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.carwash.R
+import com.example.carwash.data.ListServicos
+import com.example.carwash.data.adapters.ServicosAdapter
+import com.example.carwash.data.adapters.VehicleAdapter
+import com.example.carwash.data.model.Service
 import com.example.carwash.data.model.Vehicle
 import com.example.carwash.data.repositories.ServiceRepository
 import com.example.carwash.data.repositories.VehicleRepository
@@ -38,17 +43,19 @@ class ListServicoFragment : Fragment() {
 
     suspend fun loadService() {
         val ref  = ServiceRepository.dataServiceReference
-        Log.d("Service", "oi")
         ref.get().addOnCompleteListener { task ->
 
             val result = task.result?.children
-            val list = ArrayList<Vehicle>()
+            val list = ArrayList<Service>()
             result?.forEach {
-                val servico = it.getValue<Vehicle>()
+                val servico = it.getValue<Service>()
 
                 Log.d("Service", it.value.toString())
                 servico?.let { it1 -> list.add(it1) }
             }
+
+            //val adapterService = ServicosAdapter(requireActivity(), list)
+            //listServicosBinding.lvServicos.adapter = adapterService
         }
     }
 

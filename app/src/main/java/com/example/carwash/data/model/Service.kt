@@ -1,6 +1,6 @@
 package com.example.carwash.data.model
 
-open class Service (
+data class Service (
     var serviceID: String = "",
     var serviceDesc: String = "",
     var servicePrice: String = "",
