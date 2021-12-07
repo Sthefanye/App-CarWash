@@ -65,7 +65,7 @@ class HomeFragment : Fragment() {
 
     private fun navigateHomeToAgendarLimpeza(){
         homeBinding.icAgendarLimpeza.setOnClickListener {
-            findNavController().navigate(R.id.nav_frag_home_to_lista_servicos)
+            findNavController().navigate(R.id.nav_frag_home_to_agendarLimpeza)
         }
     }
 
