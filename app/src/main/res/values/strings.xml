@@ -62,5 +62,7 @@
         <item>14:00</item>
         <item>15:00</item>
     </string-array>
+    <string name="update_data_vehicle">Edite os dados do seu veículo?</string>
+
 
 </resources>

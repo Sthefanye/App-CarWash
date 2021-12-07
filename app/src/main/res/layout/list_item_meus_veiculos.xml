@@ -23,7 +23,7 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/tvModelCarStatusService"
+                android:id="@+id/tvModelCarMeusVeiculos"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="3dp"
@@ -32,7 +32,7 @@
                 android:textColor="@color/blue_light" />
 
             <TextView
-                android:id="@+id/tvCorCarStatusService"
+                android:id="@+id/tvCorCarMeusVeiculos"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="3dp"
@@ -41,7 +41,7 @@
                 android:textColor="@color/blue_light" />
 
             <TextView
-                android:id="@+id/tvPlacaCarStatusService"
+                android:id="@+id/tvPlacaCarMeusVeiculos"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="3dp"
@@ -50,7 +50,7 @@
                 android:textColor="@color/blue_light" />
 
             <TextView
-                android:id="@+id/tvAnoCarStatusService"
+                android:id="@+id/tvAnoCarMeusVeiculos"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="3dp"

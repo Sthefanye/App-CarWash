@@ -34,6 +34,7 @@ class AgendarLimpezaFragment : Fragment() {
             DataBindingUtil.inflate(inflater, R.layout.fragment_agendar_servico, container, false)
         calendar()
         dropDownHorarios()
+        clickSubmitAgendamento()
 
         return agendarLimpezaBinding.root
     }
@@ -66,6 +67,18 @@ class AgendarLimpezaFragment : Fragment() {
         }
     }
 
+    private fun clickSubmitAgendamento(){
+        agendarLimpezaBinding.btnConfirmAgendamento.setOnClickListener {
+            val data = viewModel.dataLiveData.value.toString()
+            val dataSpinner = agendarLimpezaBinding.spListHorarios.selectedItem.toString()
+            Log.d(TAG, "O data e: $data | hour: $dataSpinner")
+
+
+
+
+
+        }
+    }
 
     companion object {
         private const val TAG = "agendarServico"

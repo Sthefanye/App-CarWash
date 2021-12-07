@@ -11,6 +11,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.carwash.R
+import com.example.carwash.data.repositories.PersonRepository
 import com.example.carwash.databinding.FragmentLoginBinding
 import com.example.carwash.data.util.DialogProgress
 import kotlinx.android.synthetic.main.fragment_login.*
@@ -52,7 +53,6 @@ class LoginFragment : Fragment(), View.OnClickListener {
 
             btnLoginChangeAccount.id -> {
                 buttonLogin()
-                findNavController().navigate(R.id.nav_frag_login_to_home)
             }
         }
     }
@@ -102,7 +102,7 @@ class LoginFragment : Fragment(), View.OnClickListener {
 
     }
 
-    fun errorsFirebase(error: String) {
+    private fun errorsFirebase(error: String) {
         when {
             error.contains("There is no user record corresponding to this identifier. The user may have been deleted.") -> {
                 Util.exibirToast(requireContext(), "E-mail não cadastrado")
