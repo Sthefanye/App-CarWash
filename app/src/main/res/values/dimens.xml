@@ -23,7 +23,7 @@
 
     <!--    Dimens Create Account -->
     <dimen name="altura_edit_text">350dp</dimen>
-    <dimen name="largura_edit_text">48dp</dimen>
+    <dimen name="largura_edit_text">40dp</dimen>
 
     <dimen name="margin_top">15dp</dimen>
     <dimen name="margin_top_default_create_account">50dp</dimen>

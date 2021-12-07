@@ -54,7 +54,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/body_5"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="10dp"
             android:fontFamily="@font/raleway_extra_bold"
             android:text="@string/escolha_a_data"
             android:textColor="@color/blue_dark_primary"
@@ -65,8 +65,8 @@
         <CalendarView
             android:id="@+id/calendarView"
             android:layout_width="387dp"
-            android:layout_height="314dp"
-            android:layout_marginTop="150dp"
+            android:layout_height="300dp"
+            android:layout_marginTop="55dp"
             app:layout_constraintEnd_toEndOf="@+id/textView"
             app:layout_constraintStart_toStartOf="@+id/textView"
             app:layout_constraintTop_toBottomOf="@+id/textView"
@@ -77,16 +77,15 @@
             android:id="@+id/tvDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/body_5"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
             android:fontFamily="@font/raleway_medium"
             android:hint="@string/data"
             android:text="@{date.dateObservable}"
             android:textColor="@color/blue_dark_primary"
-            android:textSize="@dimen/body_5"
-            android:layout_marginLeft="@dimen/body_5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/calendarView" />
-
+            android:textSize="@dimen/body_1"
+            app:layout_constraintStart_toEndOf="@+id/tvEscolherData"
+            app:layout_constraintTop_toBottomOf="@+id/ivToolbar" />
 
         <TextView
             android:id="@+id/tvLabelHorario"
@@ -96,17 +95,43 @@
             android:fontFamily="@font/raleway_medium"
             android:text="@string/escola_seu_hor_rio"
             android:textColor="@color/blue_dark_primary"
-            android:textSize="@dimen/body_5"
+            android:textSize="@dimen/body_1"
             android:layout_marginStart="@dimen/body_5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvDate" />
+            app:layout_constraintTop_toBottomOf="@+id/calendarView" />
+
+        <TextView
+            android:id="@+id/tvLabelServico"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/body_1"
+            android:fontFamily="@font/raleway_medium"
+            android:text="@string/escola_seu_servico"
+            android:textColor="@color/blue_dark_primary"
+            android:textSize="@dimen/body_1"
+            android:layout_marginStart="@dimen/body_5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/spListHorarios" />
+
+        <TextView
+            android:id="@+id/tvLabelPlaca"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/body_3"
+            android:fontFamily="@font/raleway_medium"
+            android:text="@string/escola_sua_placa"
+            android:textColor="@color/blue_dark_primary"
+            android:textSize="@dimen/body_1"
+            android:layout_marginStart="@dimen/body_5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/spListServico" />
 
         <Spinner
             android:id="@+id/spListHorarios"
             android:layout_width="@dimen/altura_edit_text"
             android:layout_height="@dimen/largura_edit_text"
             android:layout_marginStart="@dimen/body_5"
-            android:layout_marginTop="@dimen/body_5"
+            android:layout_marginTop="@dimen/body_1"
             android:backgroundTint="@color/blue_light"
             android:drawablePadding="@dimen/padding_drawable_icons_default"
             android:elevation="@dimen/body_5"
@@ -114,18 +139,46 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvLabelHorario" />
 
+        <Spinner
+            android:id="@+id/spListServico"
+            android:layout_width="@dimen/altura_edit_text"
+            android:layout_height="@dimen/largura_edit_text"
+            android:layout_marginStart="@dimen/body_5"
+            android:layout_marginTop="@dimen/body_1"
+            android:backgroundTint="@color/blue_light"
+            android:drawablePadding="@dimen/padding_drawable_icons_default"
+            android:elevation="@dimen/body_5"
+            android:fontFamily="@font/raleway_medium"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvLabelServico" />
+
+        <Spinner
+            android:id="@+id/spListPlaca"
+            android:layout_width="@dimen/altura_edit_text"
+            android:layout_height="@dimen/largura_edit_text"
+            android:layout_marginStart="@dimen/body_5"
+            android:layout_marginTop="@dimen/body_1"
+            android:backgroundTint="@color/blue_light"
+            android:drawablePadding="@dimen/padding_drawable_icons_default"
+            android:elevation="@dimen/body_5"
+            android:fontFamily="@font/raleway_medium"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvLabelPlaca" />
+
         <ImageButton
             android:id="@+id/btnConfirmAgendamento"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
+            android:layout_marginBottom="@dimen/body_2"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:src="@drawable/ic_check_register_veiculo"
-            android:layout_marginBottom="@dimen/body_5"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/spListHorarios"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="@+id/spListHorarios"
-            app:layout_constraintTop_toBottomOf="@+id/spListHorarios" />
+            app:layout_constraintTop_toBottomOf="@+id/spListHorarios"
+            app:layout_constraintVertical_bias="0.988" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

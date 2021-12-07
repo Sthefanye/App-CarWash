@@ -21,6 +21,16 @@ object ServiceRepository: Repository() {
         ref.child("title").setValue(service.serviceTitle)
     }
 
+    fun addAgendamento(data: String, hour:String, service:String, placa:String, userUid: String = authReference.uid.toString()){
+        val ref = FirebaseDatabase.getInstance().reference.child("Agendamento")
+            .child(placa)
+
+        ref.child("data").setValue(data)
+        ref.child("hour").setValue(hour)
+        ref.child("service").setValue(service)
+        ref.child("placa").setValue(placa)
+    }
+
     suspend fun get(sid: String = "Services"):List<Service>{
         val ref = FirebaseDatabase.getInstance().reference.child(sid)
         val result = ref.get().await()

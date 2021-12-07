@@ -52,7 +52,11 @@
     <string name="escolha_a_data">Escolha a data:</string>
     <string name="data">Data escolhida: _/_/_</string>
     <string name="escolha_o_horario">Escolha o horário</string>
-    <string name="escola_seu_hor_rio">Escola seu horário:</string>
+    <string name="escola_seu_hor_rio">Escolha seu horário:</string>
+    <string name="escola_seu_servico">Escolha seu serviço:</string>
+    <string name="escola_sua_placa">Escolha sua placa:</string>
+
+
 
     <string-array name="Horarios">
         <item>09:00</item>
@@ -61,6 +65,14 @@
         <item>13:00</item>
         <item>14:00</item>
         <item>15:00</item>
+    </string-array>
+
+    <string-array name="Serviços">
+        <item>Limpeza simples</item>
+        <item>Limpeza completa</item>
+        <item>Higienização</item>
+        <item>Limpeza a seco</item>
+        <item>Polimento de faróis</item>
     </string-array>
     <string name="update_data_vehicle">Edite os dados do seu veículo?</string>
 

@@ -2,14 +2,24 @@ package com.example.carwash.ui.fragments
 
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.carwash.R
+import com.example.carwash.data.model.Agendamento
+import com.example.carwash.data.model.Vehicle
+import com.example.carwash.data.repositories.ServiceRepository
+import com.example.carwash.data.repositories.VehicleRepository
 import com.example.carwash.databinding.FragmentStatusBinding
+import com.google.firebase.database.ktx.getValue
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.async
+import kotlinx.coroutines.tasks.await
 
 
 class StatusFragment : Fragment() {
@@ -25,9 +35,41 @@ class StatusFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        statusBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_status, container, false)
+        statusBinding =
+            DataBindingUtil.inflate(inflater, R.layout.fragment_status, container, false)
         navigateStatusToHome()
+        GlobalScope.async { stausLoad() }
         return statusBinding.root
+    }
+
+    private suspend fun stausLoad() {
+        val list = ArrayList<String>()
+
+        VehicleRepository.databaseReference.child(VehicleRepository?.authReference?.uid.toString())
+            .child("vehicles").get().addOnCompleteListener { task ->
+
+                val result = task.result?.children
+
+                result?.forEach {
+                    val car = it.getValue<Vehicle>()
+                    Log.d("Vehicle", it.value.toString())
+                    car?.let { it1 -> list.add(it1.placa) }
+                }
+            }.await()
+
+
+        VehicleRepository.dataAgendamentoReference.get().addOnCompleteListener { task ->
+            val listAgen = ArrayList<String>()
+
+            list.forEach {
+                task.result?.child(it)?.getValue<Agendamento>().let {
+                    listAgen.add("Placa: ${it?.placa.toString()} \nServiço: ${it?.service} \nData: ${it?.data}-${it?.hour}")
+                }
+            }
+
+            statusBinding.lvMeusStatuss.adapter = ArrayAdapter(requireContext(), android.R.layout.simple_list_item_1, listAgen)
+        }.await()
+
     }
 
     private fun navigateStatusToHome() {
