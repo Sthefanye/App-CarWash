@@ -44,7 +44,6 @@ class HomeFragment : Fragment() {
         navigateHomeToStatus()
         navigateHomeToAgendarLimpeza()
         navigateLogout()
-        navigateToListServicos()
         loadDataUser()
 
         return homeBinding.root
@@ -78,14 +77,6 @@ class HomeFragment : Fragment() {
             findNavController().navigate(R.id.nav_frag_home_to_login)
         }
     }
-
-    private fun navigateToListServicos(){
-        homeBinding.btnSair.setOnClickListener {
-            findNavController().navigate(R.id.nav_frag_home_to_lista_servicos)
-        }
-    }
-
-
 
     private fun loadDataUser() {
         PersonRepository.databaseReference.child(PersonRepository.authReference.uid.toString()).get().addOnCompleteListener{ task ->

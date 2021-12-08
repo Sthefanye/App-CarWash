@@ -87,8 +87,8 @@
 
         <EditText
             android:id="@+id/etPasswordChangeAccount"
-            android:layout_width="343dp"
-            android:layout_height="41dp"
+            android:layout_width="@dimen/altura_edit_text"
+            android:layout_height="45dp"
             android:layout_marginTop="@dimen/margin_top"
             android:backgroundTint="@color/blue_light"
             android:drawableLeft="@drawable/ic_password"

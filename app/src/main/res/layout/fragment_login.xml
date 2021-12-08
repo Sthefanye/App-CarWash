@@ -66,7 +66,7 @@
 
         <Button
             android:id="@+id/btnLoginChangeAccount"
-            android:layout_width="200dp"
+            android:layout_width="220dp"
             android:layout_height="60dp"
             android:layout_marginTop="@dimen/margin_top_button"
             app:circularflow_defaultRadius="25dp"
@@ -84,7 +84,6 @@
             android:text="@string/nao_tem_conta"
             android:textSize="@dimen/body_2"
             android:fontFamily="@font/raleway_medium"
-            android:layout_marginLeft="@dimen/elevation"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="@+id/btnLoginChangeAccount"
             app:layout_constraintTop_toBottomOf="@+id/btnLoginChangeAccount" />
@@ -93,7 +92,7 @@
             android:id="@+id/tvCreateAccount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/elevation"
+            android:layout_marginLeft="8dp"
             android:fontFamily="@font/raleway_medium"
             android:text="@string/criar_agora"
             android:textColor="@color/blue_dark_primary"
@@ -102,8 +101,7 @@
             android:clickable="true"
             android:focusable="true"
             app:layout_constraintBottom_toBottomOf="@+id/tvNotAccount"
-            app:layout_constraintEnd_toEndOf="@+id/btnLoginChangeAccount"
-            app:layout_constraintStart_toEndOf="@+id/tvNotAccount" />
+            app:layout_constraintEnd_toEndOf="@+id/btnLoginChangeAccount" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
