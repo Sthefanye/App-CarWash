@@ -25,7 +25,6 @@ import com.google.firebase.database.FirebaseDatabase
 class CreateAccountFragment : Fragment() {
     private lateinit var createAccountBinding: FragmentCreateAccountBinding
     private val firebaseDatabase = FirebaseDatabase.getInstance()
-    private val databaseReference = firebaseDatabase.reference
     val dialogProgress = DialogProgress()
     private val user = FirebaseAuth.getInstance()
     private var auth: FirebaseAuth? = null
