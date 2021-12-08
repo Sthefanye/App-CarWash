@@ -9,13 +9,13 @@ import kotlinx.coroutines.tasks.await
 object PersonRepository: Repository() {
 
     fun add(person:Person){
-        val ref = databaseReference.child(person.userId).child("person")
+        val ref = databaseReference.child(person.id).child("person")
 
-        ref.child("email").setValue(person.userEmail)
-        ref.child("name").setValue(person.userName)
-        ref.child("telephone").setValue(person.userNumber)
-        ref.child("password").setValue(person.userPassword)
-        ref.child("id").setValue(person.userId)
+        ref.child("email").setValue(person.email)
+        ref.child("name").setValue(person.name)
+        ref.child("telephone").setValue(person.telephone)
+        ref.child("password").setValue(person.password)
+        ref.child("id").setValue(person.id)
     }
 
     suspend fun get(uid: String = authReference.uid.toString()):List<Vehicle>{

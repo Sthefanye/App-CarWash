@@ -1,8 +1,8 @@
 package com.example.carwash.data.model
 
 open class Person(
-    var userId: String = "",
-    var userName: String = "",
-    var userEmail: String = "",
-    var userPassword: String = "",
-    var userNumber: String = "")
+    var id: String = "",
+    var name: String = "",
+    var email: String = "",
+    var password: String = "",
+    var telephone: String = "")

@@ -63,7 +63,7 @@ class StatusFragment : Fragment() {
 
             list.forEach {
                 task.result?.child(it)?.getValue<Agendamento>().let {
-                    listAgen.add("Placa: ${it?.placa.toString()} \nServiço: ${it?.service} \nData: ${it?.data}-${it?.hour}")
+                    listAgen.add("Placa: ${it?.placa.toString()} \nServiço: ${it?.service} \n${it?.data}-${it?.hour}")
                 }
             }
 

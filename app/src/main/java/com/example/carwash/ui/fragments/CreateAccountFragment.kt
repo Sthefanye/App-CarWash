@@ -14,7 +14,6 @@ import com.example.carwash.data.model.Vehicle
 
 import com.example.carwash.databinding.FragmentCreateAccountBinding
 import com.example.carwash.data.repositories.PersonRepository
-import com.example.carwash.data.repositories.VehicleRepository
 import com.example.carwash.model.CreateAccountData
 import com.example.carwash.data.util.Util
 import com.google.firebase.auth.FirebaseAuth
@@ -59,20 +58,20 @@ class CreateAccountFragment : Fragment() {
             val data = CreateAccountData()
             val dataUser = Person(
                 //userId = System.currentTimeMillis().toInt(),
-                userEmail = createAccountBinding.etEmailChangeAccount.text.toString(),
-                userName = createAccountBinding.etNameChangeAccount.text.toString(),
-                userNumber = createAccountBinding.etTelephoneChangeAccount.text.toString(),
-                userPassword = createAccountBinding.etPasswordChangeAccount.text.toString()
+                email = createAccountBinding.etEmailChangeAccount.text.toString(),
+                name = createAccountBinding.etNameChangeAccount.text.toString(),
+                telephone = createAccountBinding.etTelephoneChangeAccount.text.toString(),
+                password = createAccountBinding.etPasswordChangeAccount.text.toString()
             )
-            if (dataUser.userEmail.trim() != "" &&
-                dataUser.userPassword.trim() != "" &&
-                dataUser.userNumber.trim() != "" &&
-                dataUser.userName.trim() != ""
+            if (dataUser.email.trim() != "" &&
+                dataUser.password.trim() != "" &&
+                dataUser.telephone.trim() != "" &&
+                dataUser.name.trim() != ""
             ) {
 
                 user.createUserWithEmailAndPassword(
-                    dataUser.userEmail,
-                    dataUser.userPassword
+                    dataUser.email,
+                    dataUser.password
                 ).addOnCompleteListener(requireActivity())
                 { task ->
                     if (task.isSuccessful) {
@@ -86,7 +85,7 @@ class CreateAccountFragment : Fragment() {
 
                         task.result?.user?.let {
 
-                            dataUser.userId = it.uid
+                            dataUser.id = it.uid
                             PersonRepository.add(dataUser)
 
                             //VehicleRepository.add(Vehicle("palio", "azul", "JXO5587", "1997"), it.uid)
@@ -134,13 +133,13 @@ class CreateAccountFragment : Fragment() {
     }
 
     private fun createAccountDatabase(dadosUsuario: Person){
-        val ref = databaseReference.child("Users").child(dadosUsuario.userId)
+        val ref = databaseReference.child("Users").child(dadosUsuario.id)
 
-        ref.child("email").setValue(dadosUsuario.userEmail)
-        ref.child("name").setValue(dadosUsuario.userName)
-        ref.child("telephone").setValue(dadosUsuario.userNumber)
-        ref.child("password").setValue(dadosUsuario.userPassword)
-        ref.child("id").setValue(dadosUsuario.userId)
+        ref.child("email").setValue(dadosUsuario.email)
+        ref.child("name").setValue(dadosUsuario.name)
+        ref.child("telephone").setValue(dadosUsuario.telephone)
+        ref.child("password").setValue(dadosUsuario.password)
+        ref.child("id").setValue(dadosUsuario.id)
     }
 
 

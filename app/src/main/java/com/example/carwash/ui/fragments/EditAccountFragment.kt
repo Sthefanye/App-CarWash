@@ -125,13 +125,13 @@ class EditAccountFragment : Fragment() {
         val ref  = PersonRepository.databaseReference.child(PersonRepository.authReference.uid.toString())
         ref.get().addOnCompleteListener { task ->
 
-            val result = task.result?.children
-            val list = ArrayList<Person>()
-            result?.forEach {
-                val personData = it.getValue<Person>()
-
-                Log.d("Person", it.value.toString())
-                personData?.let { it1 -> list.add( it1) }
+            val result = task.result?.child("person")
+            val personData = result?.getValue<Person>()
+            personData?.let { it1 ->
+                editAccountBinding.etNameChangeAccount.setText(personData.name)
+                editAccountBinding.etEmailChangeAccount.setText(personData.email)
+                editAccountBinding.etPasswordChangeAccount.setText(personData.password)
+                editAccountBinding.etTelephoneChangeAccount.setText(personData.telephone)
             }
         }
     }
