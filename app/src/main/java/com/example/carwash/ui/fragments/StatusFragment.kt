@@ -11,6 +11,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.carwash.R
+import com.example.carwash.data.adapters.StatusAdapter
 import com.example.carwash.data.model.Agendamento
 import com.example.carwash.data.model.Vehicle
 import com.example.carwash.data.repositories.ServiceRepository
@@ -59,15 +60,16 @@ class StatusFragment : Fragment() {
 
 
         VehicleRepository.dataAgendamentoReference.get().addOnCompleteListener { task ->
-            val listAgen = ArrayList<String>()
+            val listAgen = ArrayList<Agendamento>()
 
             list.forEach {
                 task.result?.child(it)?.getValue<Agendamento>().let {
-                    listAgen.add("Placa: ${it?.placa.toString()} \nServiço: ${it?.service} \n${it?.data}-${it?.hour}")
+                    it?.let { it1 -> listAgen.add(it1) }
                 }
             }
 
-            statusBinding.lvMeusStatuss.adapter = ArrayAdapter(requireContext(), android.R.layout.simple_list_item_1, listAgen)
+            statusBinding.lvMeusStatuss.adapter = StatusAdapter(requireContext(), listAgen)
+            //statusBinding.lvMeusStatuss.adapter = ArrayAdapter(requireContext(), android.R.layout.simple_list_item_1, listAgen)
         }.await()
 
     }

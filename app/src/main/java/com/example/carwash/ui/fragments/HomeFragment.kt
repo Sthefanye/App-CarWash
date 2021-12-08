@@ -1,6 +1,7 @@
 package com.example.carwash.ui.fragments
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,6 +15,7 @@ import com.example.carwash.databinding.FragmentHomeBinding
 import com.example.carwash.data.util.Util
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.ktx.database
+import com.google.firebase.database.ktx.getValue
 import com.google.firebase.ktx.Firebase
 
 class HomeFragment : Fragment() {
@@ -43,6 +45,7 @@ class HomeFragment : Fragment() {
         navigateHomeToAgendarLimpeza()
         navigateLogout()
         navigateToListServicos()
+        loadDataUser()
 
         return homeBinding.root
     }
@@ -84,7 +87,15 @@ class HomeFragment : Fragment() {
 
 
 
-    private fun navigateHomeToConfig() {
+    private fun loadDataUser() {
+        PersonRepository.databaseReference.child(PersonRepository.authReference.uid.toString()).get().addOnCompleteListener{ task ->
+            if(task.isSuccessful){
+                val person = task.result?.child("person")?.getValue<Person>()
+                Log.d("HOME", person?.name.toString())
+                homeBinding.tvNomeUsuarioHome.setText("Olá, ${person?.name}")
+            }
+            homeBinding.tvNomeUsuario.text =  "Olá, Convidado"
+        }
 
     }
 }

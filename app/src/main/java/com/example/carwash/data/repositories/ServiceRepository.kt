@@ -1,6 +1,7 @@
 package com.example.carwash.data.repositories
 
 import android.util.Log
+import com.example.carwash.data.model.Agendamento
 import com.example.carwash.data.model.Person
 import com.example.carwash.data.model.Service
 import com.example.carwash.data.model.Vehicle
@@ -21,14 +22,19 @@ object ServiceRepository: Repository() {
         ref.child("title").setValue(service.serviceTitle)
     }
 
-    fun addAgendamento(data: String, hour:String, service:String, placa:String, userUid: String = authReference.uid.toString()){
+    fun addAgendamento(agendamento: Agendamento, userUid: String = authReference.uid.toString()){
         val ref = FirebaseDatabase.getInstance().reference.child("Agendamento")
-            .child(placa)
+            .child(agendamento.placa)
 
-        ref.child("data").setValue(data)
-        ref.child("hour").setValue(hour)
-        ref.child("service").setValue(service)
-        ref.child("placa").setValue(placa)
+        ref.child("data").setValue(agendamento.data)
+        ref.child("hour").setValue(agendamento.hour)
+        ref.child("service").setValue(agendamento.service)
+        ref.child("placa").setValue(agendamento.placa)
+        ref.child("status").setValue(agendamento.status)
+        ref.child("vehicle").setValue(agendamento.vehicle)
+
+        Log.d("Vehicle add", agendamento.vehicle.toString())
+
     }
 
     suspend fun get(sid: String = "Services"):List<Service>{

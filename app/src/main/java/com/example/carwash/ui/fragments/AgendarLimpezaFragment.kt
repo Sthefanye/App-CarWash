@@ -14,17 +14,21 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.carwash.R
 import com.example.carwash.data.adapters.VehicleAdapter
+import com.example.carwash.data.model.Agendamento
 import com.example.carwash.data.model.Vehicle
 import com.example.carwash.data.repositories.ServiceRepository
 import com.example.carwash.data.repositories.VehicleRepository
+import com.example.carwash.data.util.Util
 import com.example.carwash.databinding.FragmentAgendarServicoBinding
 import com.example.carwash.ui.viewmodels.CarWashViewModel
 import com.google.firebase.database.ktx.getValue
+import java.util.ArrayList
 
 class AgendarLimpezaFragment : Fragment() {
 
     private lateinit var agendarLimpezaBinding: FragmentAgendarServicoBinding
     private val viewModel: CarWashViewModel by viewModels()
+    lateinit var listVehicle: ArrayList<Vehicle>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,6 +41,9 @@ class AgendarLimpezaFragment : Fragment() {
     ): View {
         agendarLimpezaBinding =
             DataBindingUtil.inflate(inflater, R.layout.fragment_agendar_servico, container, false)
+
+        listVehicle = ArrayList<Vehicle>()
+
         navigate()
         calendar()
         dropDownHorarios()
@@ -58,7 +65,7 @@ class AgendarLimpezaFragment : Fragment() {
         })
         agendarLimpezaBinding.calendarView.setOnDateChangeListener { _, ano, mes, dia ->
             val date = "$dia/${mes + 1}/$ano"
-            viewModel.dataLiveData.postValue("Data: $date")
+            viewModel.dataLiveData.postValue(date)
             Log.d(TAG, "Dia escolhido $date")
         }
     }
@@ -88,32 +95,38 @@ class AgendarLimpezaFragment : Fragment() {
         val ref  = VehicleRepository.databaseReference.child(VehicleRepository?.authReference?.uid.toString()).child("vehicles")
         ref.get().addOnCompleteListener { task ->
 
-            val result = task.result?.children
-            val list = java.util.ArrayList<String>()
-            result?.forEach {
-                val car = it.getValue<Vehicle>()
+            if(task.isSuccessful){
+                val result = task.result?.children
+                val list = java.util.ArrayList<String>()
+                result?.forEach {
+                    val car = it.getValue<Vehicle>()
+                    car?.let { it1 -> listVehicle.add(it1) }
+                    car?.let { it1 -> list.add( it1.placa) }
+                }
 
-                Log.d("Vehicle", it.value.toString())
-                car?.let { it1 -> list.add( it1.placa) }
+                val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_dropdown_item, list)
+                agendarLimpezaBinding.spListPlaca.adapter = adapter
+            }else{
+                Util.exibirToast(requireContext(), "Não foi possivel carregar placas")
             }
 
-            val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_dropdown_item, list)
-            agendarLimpezaBinding.spListPlaca.adapter = adapter
         }
 
     }
 
     private fun clickSubmitAgendamento(){
         agendarLimpezaBinding.btnConfirmAgendamento.setOnClickListener {
-            val data = viewModel.dataLiveData.value.toString()
-            val hour = agendarLimpezaBinding.spListHorarios.selectedItem.toString()
-            val service = agendarLimpezaBinding.spListServico.selectedItem.toString()
-            val placa = agendarLimpezaBinding.spListPlaca.selectedItem.toString()
+            val agendamento = Agendamento()
+            agendamento.data = viewModel.dataLiveData.value.toString()
+            agendamento.hour = agendarLimpezaBinding.spListHorarios.selectedItem.toString()
+            agendamento.service = agendarLimpezaBinding.spListServico.selectedItem.toString()
+            agendamento.placa = agendarLimpezaBinding.spListPlaca.selectedItem.toString()
+            agendamento.status = "Em andamento"
 
-            ServiceRepository.addAgendamento(data, hour, service, placa)
+            agendamento.vehicle =
+                listVehicle.firstOrNull { vehicle -> vehicle.placa == agendamento.placa }
 
-            Log.d(TAG, "Data: $data | hour: $hour | service: $service")
-
+            ServiceRepository.addAgendamento(agendamento)
 
             findNavController().navigate(R.id.nav_frag_agendar_limpeza_to_home)
 
