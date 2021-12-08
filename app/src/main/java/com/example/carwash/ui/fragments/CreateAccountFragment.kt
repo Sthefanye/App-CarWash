@@ -102,6 +102,7 @@ class CreateAccountFragment : Fragment() {
                 }
             } else {
                 Util.exibirToast(requireContext(), "Preencher campo vazio")
+                dialogProgress.dismiss()
             }
         }
     }
@@ -113,10 +114,8 @@ class CreateAccountFragment : Fragment() {
                 Util.exibirToast(requireContext(), "Inserir e-mail válido")
             }
             error.contains("The given password is invalid") -> {
-                Util.exibirToast(
-                    requireContext(), "A senha deve conter no mínimo" +
-                            " 6 caracteces"
-                )
+                Util.exibirToast(requireContext(), "A senha deve conter no mínimo" +
+                            " 6 caracteces")
             }
             error.contains(
                 "The password is invalid or the user does not have" +

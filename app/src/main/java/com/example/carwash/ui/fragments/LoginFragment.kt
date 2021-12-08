@@ -107,7 +107,7 @@ class LoginFragment : Fragment(), View.OnClickListener {
             error.contains("The password is invalid or the user does not have a password.") -> {
                 Util.exibirToast(requireContext(), "Usuário ou Senha inválida")
             }
-            error.contains("The password is invalid or the user does not have a password.") -> {
+            error.contains("The email address is badly formatted") -> {
                 Util.exibirToast(requireContext(), "Este e-mail não é válido")
             }
             else -> {
