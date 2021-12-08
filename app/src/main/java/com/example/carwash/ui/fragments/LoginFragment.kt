@@ -35,8 +35,29 @@ class LoginFragment : Fragment(), View.OnClickListener {
     ): View {
         loginBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_login, container, false)
         navigateToHome()
+        resetAccount()
 
         return loginBinding.root
+    }
+
+    private fun resetAccount() {
+        loginBinding.tvForgotPassword.setOnClickListener {
+
+
+            val emailAddress = loginBinding.etEmailChangeAccount.text.toString()
+
+            if(!emailAddress.isNullOrEmpty()){
+                Firebase.auth.sendPasswordResetEmail(emailAddress)
+                    .addOnCompleteListener { task ->
+                        if (task.isSuccessful) {
+                            Util.exibirToast(requireContext(), "E-mail enviado.")
+                        }
+                    }
+            }else {
+                Util.exibirToast(requireContext(), "Por favor digite seu e-mail")
+            }
+
+        }
     }
 
     private fun navigateToHome() {

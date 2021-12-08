@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <!--
         <data>
@@ -41,7 +42,6 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/margin_left_text_veiculo"
             android:fontFamily="@font/raleway_medium"
-            android:hint="@string/name_user"
             android:text="@string/ola_ana_paula"
             android:textSize="@dimen/body_5"
             app:layout_constraintStart_toEndOf="@+id/ivAvatar"
@@ -89,26 +89,25 @@
 
         <TextView
             android:id="@+id/tvNomeUsuarioHome"
-            android:layout_width="wrap_content"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
+
             android:layout_marginLeft="@dimen/margin_left_text_veiculo"
             android:fontFamily="@font/raleway_medium"
-            android:hint="@string/name_user"
-            android:text=""
             android:textSize="@dimen/body_5"
             app:layout_constraintStart_toEndOf="@+id/ivAvatar"
             app:layout_constraintTop_toTopOf="@+id/ivAvatar" />
 
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/margin_left_text_veiculo"
+            android:layout_marginStart="8dp"
             android:text="@string/bem_vindo_ao_carwash"
             android:textColor="@color/white"
             android:textSize="@dimen/body_3"
             app:layout_constraintStart_toStartOf="@+id/tvNomeUsuario"
-            app:layout_constraintTop_toBottomOf="@+id/tvNomeUsuario" />
-
+            app:layout_constraintTop_toBottomOf="@+id/tvNomeUsuarioHome" />
 
         <GridLayout
             android:id="@+id/glItensMenu"
