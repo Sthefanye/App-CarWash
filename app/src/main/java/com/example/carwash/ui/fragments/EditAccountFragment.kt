@@ -31,7 +31,8 @@ import java.util.ArrayList
 class EditAccountFragment : Fragment() {
 
     private val user = PersonRepository.authReference.currentUser
-
+    private val ref  = PersonRepository.databaseReference
+        .child(PersonRepository.authReference.uid.toString())
     private lateinit var editAccountBinding: FragmentEditAccountBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -64,65 +65,51 @@ class EditAccountFragment : Fragment() {
                 etPasswordChangeAccount.text.toString().trim() != ""
             ) {
                 PersonRepository.authReference.uid?.let { it1 ->
-                    Util.exibirToast(
-                        requireContext(),
-                        it1
-                    )
                 }
-                if (!editAccountBinding.etPasswordChangeAccount.equals("")) {
-                    changePassword()
-                }
+                //Editar Email
                 if (!editAccountBinding.etEmailChangeAccount.equals("")) {
-                    changeEmail()
+                    val newEmail = editAccountBinding.etEmailChangeAccount.text.toString()
+
+
+                    user!!.updateEmail(newEmail)
+                        .addOnCompleteListener { task ->
+                            if (task.isSuccessful) {
+
+                                ref.child("person").child("password")
+                                    .setValue(newEmail)
+                                Log.d(TAG, "User email address updated.")
+
+                            } else {
+                                Log.d(TAG, "error Email")
+                            }
+                        }
+                }
+
+                //Editar Senha
+                if (!editAccountBinding.etPasswordChangeAccount.equals("")) {
+                    val newPassword = editAccountBinding.etPasswordChangeAccount.text.toString()
+
+                    user!!.updatePassword(newPassword)
+                        .addOnCompleteListener { task ->
+                            if (task.isSuccessful) {
+
+                                Log.d(TAG, "User password updated.")
+                                ref.child("person").child("password")
+                                    .setValue(newPassword)
+                            } else {
+                                Log.d(TAG, "error")
+                            }
+                        }
                 }
                 Util.exibirToast(requireContext(), "Atualizado com sucesso")
+                findNavController().navigate(R.id.nav_edit_account_to_home)
             }else{
                 Util.exibirToast(requireContext(),"Preencher todos os dados")
             }
         }
     }
 
-
-    private fun changePassword() {
-        val newPassword = editAccountBinding.etPasswordChangeAccount.text.toString()
-
-        user!!.updatePassword(newPassword)
-            .addOnCompleteListener { task ->
-                if (task.isSuccessful) {
-
-                    Log.d(TAG, "User password updated.")
-                    //databaseReference.child("Users").child(dadosUsuario.userId).child("password").setValue(dadosUsuario.userPassword)
-                } else {
-                    Log.d(TAG, "error")
-                    Util.exibirToast(requireContext(), "Erro ao gerar senha")
-                }
-            }
-    }
-
-    private fun changeEmail() {
-        val newEmail = editAccountBinding.etEmailChangeAccount.text.toString()
-
-
-        user!!.updateEmail(newEmail)
-            .addOnCompleteListener { task ->
-                if (task.isSuccessful) {
-
-                    //databaseReference.child("Users").child(dadosUsuario.userId).child("email").setValue(dadosUsuario.userEmail)
-                    Log.d(TAG, "User email address updated.")
-
-                } else {
-                    Log.d(TAG, "error Email")
-                }
-            }
-    }
-
-    private fun changeTelephone() {
-        val user = Firebase.auth.currentUser
-        val newTelephone = editAccountBinding.etTelephoneChangeAccount.text.toString()
-    }
-
     private fun loadData(){
-        val ref  = PersonRepository.databaseReference.child(PersonRepository.authReference.uid.toString())
         ref.get().addOnCompleteListener { task ->
 
             val result = task.result?.child("person")

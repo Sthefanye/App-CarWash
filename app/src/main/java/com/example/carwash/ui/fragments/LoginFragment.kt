@@ -66,15 +66,12 @@ class LoginFragment : Fragment(), View.OnClickListener {
 
         //trim remove os espaços do input
         if (email.trim() != "" && password.trim() != "") {
-            btnLoginChangeAccount.setOnClickListener {
                 //  btnLoginChangeAccount.setBackgroundResource(R.color.white)
                 if (Util.statusInternet(requireContext())) {
                     login(email, password)
-                    findNavController().navigate(R.id.nav_frag_login_to_home)
                 } else {
                     Util.exibirToast(requireContext(), "Sem conexão com a internet")
                 }
-            }
         } else {
             Util.exibirToast(requireContext(), "Campo em branco")
         }
@@ -88,8 +85,8 @@ class LoginFragment : Fragment(), View.OnClickListener {
         auth?.signInWithEmailAndPassword(email, password)?.addOnCompleteListener { task ->
             dialogProgress.dismiss()
             if (task.isSuccessful) {
+                findNavController().navigate(R.id.nav_frag_login_to_home)
                 Util.exibirToast(requireContext(), "Sucesso ao logar")
-
             } else {
                 //Util.exibirToast(requireContext(), "Usuário ou senha inválido ${task.exception.toString()}")
                 val error = task.exception.toString()
