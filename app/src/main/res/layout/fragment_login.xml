@@ -31,6 +31,10 @@
             android:hint="@string/email"
             android:text="@{login.emailUser}"
             android:textSize="@dimen/body_3"
+            android:inputType="textEmailAddress"
+            android:imeOptions="actionNext"
+            android:maxLines="1"
+            android:maxLength="50"
             android:fontFamily="@font/raleway_medium"
             android:drawableLeft="@drawable/ic_email"
             android:drawablePadding="@dimen/padding_drawable_icons_default"
@@ -50,6 +54,9 @@
             android:fontFamily="@font/raleway_medium"
             android:drawablePadding="@dimen/padding_drawable_icons_default"
             android:inputType="textPassword"
+            android:imeOptions="actionDone"
+            android:maxLines="1"
+            android:maxLength="20"
             app:layout_constraintEnd_toEndOf="@+id/etEmailChangeAccount"
             app:layout_constraintStart_toStartOf="@+id/etEmailChangeAccount"
             app:layout_constraintTop_toBottomOf="@+id/etEmailChangeAccount" />
@@ -60,7 +67,9 @@
             android:layout_height="wrap_content"
             android:text="@string/esqueci_minha_senha"
             android:textSize="@dimen/body_2"
-            android:fontFamily="@font/raleway_medium"
+            android:clickable="true"
+            android:textColor="@color/blue_light"
+            android:fontFamily="@font/raleway_bold"
             app:layout_constraintEnd_toEndOf="@+id/etPasswordChangeAccount"
             app:layout_constraintTop_toBottomOf="@+id/etPasswordChangeAccount" />
 
@@ -81,9 +90,10 @@
             android:id="@+id/tvNotAccount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/raleway_medium"
             android:text="@string/nao_tem_conta"
             android:textSize="@dimen/body_2"
-            android:fontFamily="@font/raleway_medium"
+            android:layout_marginLeft="@dimen/body_2"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="@+id/btnLoginChangeAccount"
             app:layout_constraintTop_toBottomOf="@+id/btnLoginChangeAccount" />
@@ -92,16 +102,16 @@
             android:id="@+id/tvCreateAccount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="8dp"
+            android:clickable="true"
+            android:focusable="true"
             android:fontFamily="@font/raleway_medium"
+            android:onClick="onClickCreateAccount"
             android:text="@string/criar_agora"
             android:textColor="@color/blue_dark_primary"
             android:textSize="@dimen/body_2"
-            android:onClick="onClickCreateAccount"
-            android:clickable="true"
-            android:focusable="true"
             app:layout_constraintBottom_toBottomOf="@+id/tvNotAccount"
-            app:layout_constraintEnd_toEndOf="@+id/btnLoginChangeAccount" />
+            app:layout_constraintEnd_toEndOf="@+id/btnLoginChangeAccount"
+            app:layout_constraintStart_toEndOf="@+id/tvNotAccount" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

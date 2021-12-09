@@ -22,6 +22,12 @@
             app:popUpTo="@id/cadastrarUsuarioFragment"
             app:popUpToInclusive="true" />
 
+        <action
+            android:id="@+id/nav_login_to_frag_forgot_pass"
+            app:destination="@id/forgotPassowrd"
+            app:popUpTo="@id/forgotPassowrd"
+            app:popUpToInclusive="true" />
+
     </fragment>
 
     <fragment
@@ -198,6 +204,19 @@
             android:id="@+id/nav_frag_update_veiculos_to_meus_veiculos"
             app:destination="@id/fragMeusVeiculos"
             app:popUpTo="@id/fragMeusVeiculos"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/forgotPassowrd"
+        android:name="com.example.carwash.ui.fragments.ForgotPasswordFragment"
+        android:label="forgotPassword"
+        tools:layout="@layout/fragment_forgot_password">
+
+        <action
+            android:id="@+id/nav_frag_forgot_pass_to_login"
+            app:destination="@id/loginFragment"
+            app:popUpTo="@id/loginFragment"
             app:popUpToInclusive="true" />
     </fragment>
 

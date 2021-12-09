@@ -83,7 +83,7 @@
             android:layout_height="128dp"
             android:layout_marginStart="30dp"
             android:layout_marginTop="40dp"
-            android:src="@drawable/ic_girl_avatar"
+            android:src="@drawable/ic_logo_home"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 

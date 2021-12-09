@@ -7,6 +7,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.EditorInfo
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
@@ -35,36 +36,23 @@ class LoginFragment : Fragment(), View.OnClickListener {
     ): View {
         loginBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_login, container, false)
         navigateToHome()
-        resetAccount()
+        navigateToForgotPassword()
 
         return loginBinding.root
     }
 
-    private fun resetAccount() {
-        loginBinding.tvForgotPassword.setOnClickListener {
-
-
-            val emailAddress = loginBinding.etEmailChangeAccount.text.toString()
-
-            if(!emailAddress.isNullOrEmpty()){
-                Firebase.auth.sendPasswordResetEmail(emailAddress)
-                    .addOnCompleteListener { task ->
-                        if (task.isSuccessful) {
-                            Util.exibirToast(requireContext(), "E-mail enviado.")
-                        }
-                    }
-            }else {
-                Util.exibirToast(requireContext(), "Por favor digite seu e-mail")
-            }
-
-        }
-    }
 
     private fun navigateToHome() {
         loginBinding.btnLoginChangeAccount.setOnClickListener(this)
 
         loginBinding.tvCreateAccount.setOnClickListener {
             findNavController().navigate(R.id.nav_frag_login_to_cadastrar_user)
+        }
+    }
+
+    private fun navigateToForgotPassword(){
+        loginBinding.tvForgotPassword.setOnClickListener {
+            findNavController().navigate(R.id.nav_login_to_frag_forgot_pass)
         }
     }
 
@@ -136,6 +124,7 @@ class LoginFragment : Fragment(), View.OnClickListener {
             }
         }
     }
+
 
     companion object {
         private const val TAG = "LoginFragment"
