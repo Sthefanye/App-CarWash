@@ -1,7 +1,10 @@
 package com.example.carwash.data.adapters
 
 import android.annotation.SuppressLint
+import android.app.AlertDialog
 import android.content.Context
+import android.content.DialogInterface
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,6 +15,8 @@ import com.example.carwash.R
 import com.example.carwash.data.model.Agendamento
 import com.example.carwash.data.model.Person
 import com.example.carwash.data.model.Vehicle
+import com.example.carwash.data.repositories.VehicleRepository
+import com.example.carwash.ui.fragments.MeusVeiculosFragment
 
 class StatusAdapter(context: Context, arrayList: ArrayList<Agendamento>) :
     ArrayAdapter<Agendamento>(context, R.layout.list_item_status, arrayList) {
@@ -37,14 +42,23 @@ class StatusAdapter(context: Context, arrayList: ArrayList<Agendamento>) :
         tvAnoCarStatusService.text = "Ano: ${agendamento?.vehicle?.ano}"
         tvModelCarStatusService.text = "Modelo: ${agendamento?.vehicle?.modelo}"
 
-        view.setOnLongClickListener ( View.OnLongClickListener {
-            Toast.makeText(context, " click Longo", Toast.LENGTH_SHORT).show()
+        view.setOnLongClickListener {
+            val alertDialog = AlertDialog.Builder(context).apply {
+                setIcon(R.drawable.ic_delete)
+                setTitle(R.string.title)
+                setMessage(R.string.message_status)
+                setPositiveButton(R.string.sim) { _, _ ->
+                    Log.d(VehicleAdapter.TAG, "CLICK SIM")
+                    val ref  = VehicleRepository.dataAgendamentoReference.child(agendamento?.placa.toString())
+                    ref.removeValue()
+                    remove(agendamento)
+                }
+                setNegativeButton(R.string.nao) { _, _ ->
+                    Log.d(VehicleAdapter.TAG, "CLICK NÃO")
+                }
+                show()
+            }
             false
-        })
-
-        view.setOnClickListener {
-            Toast.makeText(context, " click curto", Toast.LENGTH_SHORT).show()
-
         }
 
         return view

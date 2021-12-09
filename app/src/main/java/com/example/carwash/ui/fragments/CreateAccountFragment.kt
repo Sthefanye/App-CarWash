@@ -101,7 +101,10 @@ class CreateAccountFragment : Fragment() {
                     dialogProgress.dismiss()
                 }
             } else {
-                Util.exibirToast(requireContext(), "Preencher campo vazio")
+                createAccountBinding.etEmailChangeAccount.error = "Campo Obrigatório"
+                createAccountBinding.etNameChangeAccount.error = "Campo Obrigatório"
+                createAccountBinding.etTelephoneChangeAccount.error = "Campo Obrigatório"
+                createAccountBinding.etPasswordChangeAccount.error = "Campo Obrigatório"
                 dialogProgress.dismiss()
             }
         }

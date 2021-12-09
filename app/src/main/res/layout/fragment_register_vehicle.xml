@@ -34,6 +34,7 @@
             app:layout_constraintTop_toBottomOf="@+id/btnVoltarHome" />
 
         <EditText
+
             android:id="@+id/etModeloVeiculo"
             android:layout_width="@dimen/altura_edit_text"
             android:layout_height="@dimen/largura_edit_text"
@@ -41,6 +42,8 @@
             android:backgroundTint="@color/blue_light"
             android:fontFamily="@font/raleway_medium"
             android:hint="@string/modelo_veiculo"
+            android:inputType="textAutoComplete"
+            android:imeOptions="actionNext"
             app:layout_constraintEnd_toEndOf="@+id/tvModeloVeiculo"
             app:layout_constraintStart_toStartOf="@+id/tvModeloVeiculo"
             app:layout_constraintTop_toBottomOf="@+id/tvModeloVeiculo" />
@@ -49,11 +52,16 @@
             android:id="@+id/etPlacaVeiculo"
             android:layout_width="@dimen/altura_edit_text"
             android:layout_height="@dimen/largura_edit_text"
-            android:layout_marginTop="@dimen/margin_top"
+            android:layout_marginTop="12dp"
             android:backgroundTint="@color/blue_light"
             android:fontFamily="@font/raleway_medium"
             android:hint="@string/placa_veiculo"
+            android:imeOptions="actionNext"
+            android:inputType="textCapSentences"
+            android:maxLength="8"
+            android:textAllCaps="true"
             app:layout_constraintEnd_toEndOf="@+id/etModeloVeiculo"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="@+id/etModeloVeiculo"
             app:layout_constraintTop_toBottomOf="@+id/etModeloVeiculo" />
 
@@ -65,7 +73,9 @@
             android:backgroundTint="@color/blue_light"
             android:fontFamily="@font/raleway_medium"
             android:hint="@string/ano_veiculo"
+            android:maxLength="4"
             android:inputType="number"
+            android:imeOptions="actionNext"
             app:layout_constraintEnd_toEndOf="@+id/etPlacaVeiculo"
             app:layout_constraintStart_toStartOf="@+id/etPlacaVeiculo"
             app:layout_constraintTop_toBottomOf="@+id/etPlacaVeiculo" />
@@ -78,6 +88,8 @@
             android:backgroundTint="@color/blue_light"
             android:fontFamily="@font/raleway_medium"
             android:hint="@string/cor_veiculo"
+            android:inputType="textAutoComplete"
+            android:imeOptions="actionDone"
             app:layout_constraintEnd_toEndOf="@+id/etAnoVeiculo"
             app:layout_constraintStart_toStartOf="@+id/etAnoVeiculo"
             app:layout_constraintTop_toBottomOf="@+id/etAnoVeiculo" />

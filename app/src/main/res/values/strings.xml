@@ -43,7 +43,7 @@
     <string name="meus_veiculos">Meus Veículos</string>
     <string name="em_andamento">Em andamento</string>
     <string name="vehicle">Sedan</string>
-    <string name="crie_sua_nova_senha">Crie sua nova senha</string>
+    <string name="crie_sua_nova_senha">Vamos recuperar sua conta</string>
     <string name="senha_atual">Senha Atual</string>
     <string name="senha_nova">Senha Nova</string>
     <string name="confirme_a_senha_nova">Confirme a senha nova</string>
@@ -75,5 +75,16 @@
     </string-array>
     <string name="update_data_vehicle">Edite os dados do seu veículo?</string>
 
+    <string name="title">Excluir</string>
+    <string name="title_email">E-mail enviado</string>
+    <string name="message">Tem certeza que deseja excluir esse cadastro?</string>
+    <string name="message_status">Tem certeza que deseja excluir esse agendamento?</string>
+    <string name="message_email">Verifique sua caixa de entrada ou lixo eletônico.</string>
+    <string name="sim">Sim</string>
+    <string name="nao">Não</string>
+    <string name="ok">Ok</string>
+    <string name="digite_o_seu_e_mail">Digite o seu e-mail</string>
+    <string name="descricao_redefir_senha">Enviaremos um link de redefinição de senha para o seu e-mail</string>
+    <string name="enviar">Enviar</string>
 
 </resources>

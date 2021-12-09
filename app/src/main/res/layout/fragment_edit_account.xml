@@ -49,9 +49,9 @@
 
         <ImageView
             android:id="@+id/ivLogo"
-            android:layout_width="150dp"
+            android:layout_width="100dp"
             android:layout_height="150dp"
-            android:src="@drawable/ic_girl_avatar"
+            android:src="@drawable/ic_edit_account"
             app:layout_constraintEnd_toEndOf="@+id/ivToolbar"
             app:layout_constraintStart_toStartOf="@+id/ivToolbar"
             app:layout_constraintTop_toBottomOf="@+id/ivToolbar" />
